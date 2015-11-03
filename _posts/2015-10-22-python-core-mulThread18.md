@@ -13,7 +13,8 @@
 - callable,compile(eval求值,single单一,exec语句组)
 
 - eval/exec (执行代码对象)
-```
+
+```bash
 >>> exec """
 ... x = 0
 ... print 'x is currently:',x
@@ -23,7 +24,8 @@ x is currently: 0
 ```
 
 - input 等同于 eval(raw_input(prompt=''))  返回python对象,raw_input返回string
-```
+
+```bash
 >>> aString = raw_input('Enter a list')
 Enter a list[123,'xyz',46.7]
 >>> aString
@@ -34,7 +36,8 @@ Enter a list:[123,'xyz',46.7]
 [123, 'xyz', 46.7]
 ```
 - 函数属性
-```
+
+```python
 #!/usr/bin/env python
 
 def foo():
@@ -68,7 +71,8 @@ for eachAttr  in dir():
 
 - 执行其它Python程序
  - import /execfile()
-    ```
+ 
+    ```bash
     f = open(filename,'r')
     exec f
     f.close()
@@ -76,7 +80,8 @@ for eachAttr  in dir():
 - 执行其它非Python程序--->subprogress
  - subprogress.call(['ls','-al'])
  - Popen 
- ```
+ 
+ ```bash
  >>> from subprocess import PIPE,Popen
  >>> f = Popen(['ls','-al'],stdout=PIPE).stdout
  >>> for each in f:
@@ -91,7 +96,7 @@ for eachAttr  in dir():
  -rw-r--r--   1 winfan  staff   380 Aug 19 10:06 .project
  ```
 
- ```
+ ```python
 #stdin stdout have PIPE will return an object,else None
 # p= Popen(['python','test1.py'],stdin=PIPE,stdout=PIPE)
 #p.write('test')
@@ -99,18 +104,22 @@ for eachAttr  in dir():
 #如果是ls -al 这种命令，则直接运行完毕并关闭pip 已无法再操作in,out
 #Both subprocess and os.popen* only allow input and output one time, and the output to be read only when the process terminates.
  ```
+ 
   - 根据unix 规范 要编写从stdin 获取输入再输出到stdout 直接借助sys.stdin就可以 
-  ```
+  
+  ```python
 #test1.py
 #!/usr/bin/env python
 import sys
 line = sys.stdin.readlines()
 print 'test',line
   ```
-  ```
+  
+  ```bash
     practise git:(master) ✗ ls | python test1.py
 test ['11_11.py\n', '11_12.py\n'] 
   ```
+  
 - 结束执行 主动 sys.exit(status=0) 需要退出前清理设置 sys.exitfunc()
 
 
@@ -119,7 +128,7 @@ test ['11_11.py\n', '11_12.py\n']
 - compile 多则预编译
 - group 匹配到的  groups 子组 group(1)也是子组
 
-```
+```bash
 >>> f = re.match('(a)(b)','ab')
 >>> f.group()
 'ab'
@@ -131,13 +140,14 @@ test ['11_11.py\n', '11_12.py\n']
 ('a', 'b')ab'
 
 ```
+
 - match,search,findall 
 match & search 返回找到的第一个
 match 要从头开始匹配 中间的还要捕获
 search 可中间含有
 两者都返回一个匹配对象
 
-findall 和search功能一样，返回列表
+- findall 和search功能一样，返回列表
 一般应该是想用search ,需要全部就findall
 - split 正则分割
 - raw strings 原始字符串 r''

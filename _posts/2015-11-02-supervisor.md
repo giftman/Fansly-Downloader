@@ -3,31 +3,29 @@ layout: post
 title: supervisor 
 ---
 
-http://supervisord.org/running.html
+- <http://supervisord.org/running.html>
 
-### the simple way to use suepervisor
+## The simple way to use suepervisor
 
 
-* Complete Jekyll setup included (layouts, config, [404](/404), [RSS feed](/atom.xml), posts, and [example page](/about))
-* Mobile friendly design and development
-* Easily scalable text and component sizing with `rem` units in the CSS
-* Support for a wide gamut of HTML elements
-* Related posts (time-based, because Jekyll) below each post
-* Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)
 
 ### Install 
+```bash
 pip install supervisor
-
+```
 ### create default config 
+```bash
 echo_supervisord_conf > supervisord.conf
-
+```
 ###supervisord(start)  
+```bash
 supervisord -n -c supervisor.conf 
-
+```
 
 ###supervisorctl (controller)
+```bash
 supervisorctl status/stop all/shutdown 
-
+```
 
 ###add program 
 ```
@@ -40,5 +38,6 @@ directory=/Users/winfan/opt/goagent/local                ; directory to cwd to b
 
 ```
 
+```bash
 supervisorctl reload
-
+```
