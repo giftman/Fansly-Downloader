@@ -109,7 +109,6 @@ $ git commit -m "future" --date="Sun Jan 3 13:40:06 2017 +0800"
 git reset 恢复到某个版本状态，--soft用仓库的内容覆盖staging area 和working directory,如果staging area和working directory有你自己的内容，你有新的修改没提交或者提交了没commit,就保留你的。--hard就不用想这么多，直接全部内容仓库的。
 git checkout 则是使用 staging area 的中的版本覆盖 working directory。
 
-
 `
 $ git reset HEAD
 $ git add to_commit_first.rb
