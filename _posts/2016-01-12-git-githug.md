@@ -10,7 +10,13 @@ reset,chekcout
 reset 以仓库内容覆盖
 checkout 以Staging area 内容覆盖
 
+HEAD HEAD^ HEAD^1
+git push origin  master
+git push origin  test_branch
+
+
 其它实践再补充
+
 --
 
 ####Level 1: init 
@@ -247,9 +253,12 @@ $ git rebase --log_index
 or git checkout?
 `
 ####Level 53: conflict 
+
 `
 $ git merge mybranch
-# resolve conflicts and finish the merge
+`
+resolve conflicts and finish the merge
+`
 $ git add .
 $ git commit -m "Fix merge"
 `
@@ -261,3 +270,8 @@ $ git submodule add https://github.com/jackmaney/githug-include-me githug-includ
 `
 :)
 Githug is designed to give you a practical way of learning git. It has a series of levels, each req
+
+
+ref:
+http://www.jianshu.com/p/482b32716bbe
+http://blog.csdn.net/trochiluses/article/details/8996431
