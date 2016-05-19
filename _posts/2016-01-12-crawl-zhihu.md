@@ -49,3 +49,13 @@ scrapy list
 scrapy help/version
 scrapy view
 `
+
+发布
+scrapyd 安装
+工程打包成egg //http://www.worldhello.net/2010/12/08/2178.html
+
+上传增加版本 //https://scrapyd.readthedocs.org/en/latest/api.html#addversion-json
+
+or 
+
+scrapy-client //https://github.com/scrapy/scrapyd-client  直接帮你egg然后addversion了

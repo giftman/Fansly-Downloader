@@ -4,12 +4,11 @@ highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            winfan
 tagline:          'A blog 我只是很懒'
-description:      'want free in computer world'
+description:      'free in net world'
 url:              http://giftman.github.io
 baseurl:          /
 
