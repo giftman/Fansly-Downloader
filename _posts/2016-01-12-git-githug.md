@@ -4,7 +4,7 @@ title: githug
 ---
 #githug
 
---
+
 reset,rebase 
 reset 恢复到某一状态,保留修改待提交或者全部舍弃前面的修改  
 rebase 以某个版本为基础重新在它的基础上重新提交修改内容/以某个版本为基础交互修改log,sqush,reorder
@@ -20,7 +20,7 @@ git push origin  test_branch
 
 其它实践再补充
 
----
+----
 
 ####Level 1: init 
 `
