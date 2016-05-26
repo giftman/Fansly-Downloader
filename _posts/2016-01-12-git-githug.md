@@ -1,4 +1,7 @@
-
+---
+layout: post
+title: githug 
+---
 #githug
 
 --
@@ -17,7 +20,7 @@ git push origin  test_branch
 
 其它实践再补充
 
---
+---
 
 ####Level 1: init 
 `
@@ -116,14 +119,15 @@ git reset 恢复到某个版本状态，--soft用仓库的内容覆盖staging ar
 git checkout 则是使用 staging area 的中的版本覆盖 working directory。
 
 `
-$ git reset HEAD
+$ git reset HEAD 
 $ git add to_commit_first.rb
 `
 ####Level 22: reset_soft //start
 
-1 --soft 参数将上一次的修改放入 staging area
-2 --mixed 参数将上一次的修改放入 working directory
-3 --hard 参数直接将上一次的修改抛弃
+ * --soft 参数将上一次的修改放入 staging area
+ * --mixed 参数将上一次的修改放入 working directory
+ * --hard 参数直接将上一次的修改抛弃
+
 `
 $ git reset --soft HEAD^
 `
@@ -226,7 +230,6 @@ $ git bisect start
 $ git bisect bad
 $ git bisect good [first commit]
 $ git bisect run ruby prog.rb 5    # 二分查找直至找出 bad 提交 
-
 $ git bisect start master f608824888b83
 `
 ####Level 49: stage_lines 
@@ -257,11 +260,14 @@ or git checkout?
 `
 $ git merge mybranch
 `
+
 resolve conflicts and finish the merge
+
 `
 $ git add .
 $ git commit -m "Fix merge"
 `
+
 ####Level 54: submodule 
 `
 $ git submodule add https://github.com/jackmaney/githug-include-me githug-include-merge
@@ -270,7 +276,7 @@ $ git submodule add https://github.com/jackmaney/githug-include-me githug-includ
 `
 :)
 Githug is designed to give you a practical way of learning git. It has a series of levels, each req
-
+`
 
 ref:
 http://www.jianshu.com/p/482b32716bbe
