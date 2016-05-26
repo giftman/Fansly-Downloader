@@ -1,5 +1,5 @@
 # Dependencies
-kramdown:         redcarpet
+markdown:         kramdown
 highlighter:      rouge
 
 # Permalinks
@@ -17,6 +17,7 @@ author:
   url:            http://giftman.github.io
 
 paginate:         5
+gems: [jekyll-paginate]
 
 # Custom vars
 version:          2.1.0
