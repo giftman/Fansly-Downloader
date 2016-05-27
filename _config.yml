@@ -1,3 +1,4 @@
+host: giftman.github.io
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
