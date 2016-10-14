@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>qemu | WINFAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="some times we want to write about how we success ,but here just describe how pain I had suffered.
+
+Reference: Jeremy http://m.77169.net/HTML/226392.html
+安装依赖，下载qemu12345sudo apt-get install -y libgli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qemu">
+<meta property="og:url" content="http://winfan.xyz/2016/05/24/2016-05-24-qemu/index.html">
+<meta property="og:site_name" content="WINFAN">
+<meta property="og:description" content="some times we want to write about how we success ,but here just describe how pain I had suffered.
+
+Reference: Jeremy http://m.77169.net/HTML/226392.html
+安装依赖，下载qemu12345sudo apt-get install -y libgli">
+<meta property="og:image" content="http://oeyxehw3i.bkt.clouddn.com/16-10-14/99604908.jpg">
+<meta property="og:updated_time" content="2016-10-14T08:15:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qemu">
+<meta name="twitter:description" content="some times we want to write about how we success ,but here just describe how pain I had suffered.
+
+Reference: Jeremy http://m.77169.net/HTML/226392.html
+安装依赖，下载qemu12345sudo apt-get install -y libgli">
+<meta name="twitter:image" content="http://oeyxehw3i.bkt.clouddn.com/16-10-14/99604908.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="WINFAN" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85411784-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">WINFAN</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Winfan</h2>
+            <h3 id="title">Android &amp; React Native Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>GuangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/giftman/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                14
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                32
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/giftman/hexo-theme-icarus" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-2016-05-24-qemu" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/99604908.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            qemu
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/24/2016-05-24-qemu/">
+            <time datetime="2016-05-24T12:46:25.000Z" itemprop="datePublished">2016-05-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hack/">Hack</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hack/">hack</a>, <a class="tag-link" href="/tags/qemu/">qemu</a>, <a class="tag-link" href="/tags/tool/">tool</a>, <a class="tag-link" href="/tags/zpt/">zpt</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>some times we want to write about how we success ,but here just describe how pain I had suffered.</p>
+</blockquote>
+<p>Reference: Jeremy <a href="http://m.77169.net/HTML/226392.html" target="_blank" rel="external">http://m.77169.net/HTML/226392.html</a></p>
+<h3 id="安装依赖，下载qemu"><a href="#安装依赖，下载qemu" class="headerlink" title="安装依赖，下载qemu"></a>安装依赖，下载qemu</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y libglib2.0-dev uml-utilities bridge-utils dh-autoreconf vim git</div><div class="line"></div><div class="line">wget http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2 </div><div class="line"></div><div class="line">wget https://downloads.openwrt.org/snapshots/trunk/malta/generic/openwrt-malta-le-vmlinux-initramfs.elf</div></pre></td></tr></table></figure>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/69481813.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/80615105.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/20791963.jpg" alt=""></p>
+<h3 id="1-添加网桥"><a href="#1-添加网桥" class="headerlink" title="1 添加网桥"></a>1 添加网桥</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/55194388.jpg" alt=""><br>创建后 sudo /sbin/ifup tap0 &amp;&amp; sudo /sbin/ifup br0  启动</p>
+<h3 id="2-创建ubuntu与qemu虚拟之间的共享盘"><a href="#2-创建ubuntu与qemu虚拟之间的共享盘" class="headerlink" title="2 创建ubuntu与qemu虚拟之间的共享盘"></a>2 创建ubuntu与qemu虚拟之间的共享盘</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/74696503.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/41611918.jpg" alt=""></p>
+<h3 id="3-binwalk-解压固件"><a href="#3-binwalk-解压固件" class="headerlink" title="3 binwalk 解压固件"></a>3 binwalk 解压固件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//binwalk</div><div class="line">git clone https://github.com/devttys0/binwalk</div><div class="line">sudo python setup.py install</div><div class="line">sudo apt-get install python-lzma</div><div class="line">binwalk -e NW774.bin</div></pre></td></tr></table></figure>
+<p>解压完有以下内容，将squashfs-root 复制到上一步的共享盘中即/tmp/share,squashfs-root 里面有bin这些文件，新复制内容到里面需要重新启动qemu</p>
+<p><img src="http:///img/qemu_10.png" alt="img"></p>
+<h3 id="4-通过telnet-连接qemu虚拟器"><a href="#4-通过telnet-连接qemu虚拟器" class="headerlink" title="4 通过telnet 连接qemu虚拟器"></a>4 通过telnet 连接qemu虚拟器</h3><p><code>telnet localhost 6666</code></p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/85307953.jpg" alt=""></p>
+<h3 id="5-chroot-到从NW774-bin解压的文件"><a href="#5-chroot-到从NW774-bin解压的文件" class="headerlink" title="5 chroot 到从NW774.bin解压的文件"></a>5 chroot 到从NW774.bin解压的文件</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/89948576.jpg" alt=""></p>
+<h4 id="可惜最后我有ubuntu-32位-1604-ubuntu-64位-1404-qemu-2-6-都会出现如上图错误，实验失败–"><a href="#可惜最后我有ubuntu-32位-1604-ubuntu-64位-1404-qemu-2-6-都会出现如上图错误，实验失败–" class="headerlink" title="可惜最后我有ubuntu 32位 1604/ubuntu 64位 1404/ qemu 2.6 都会出现如上图错误，实验失败–"></a>可惜最后我有ubuntu 32位 1604/ubuntu 64位 1404/ qemu 2.6 都会出现如上图错误，实验失败–</h4><p>执行过的shell 如下方便重现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"> #!/bin/bash</div><div class="line">wget http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2</div><div class="line">wget https://downloads.openwrt.org/snapshots/trunk/malta/generic/openwrt-malta-le-vmlinux-initramfs.elf</div><div class="line"></div><div class="line">apt-cache search glib2</div><div class="line"></div><div class="line">sudo apt-get install -y libglib2.0-dev uml-utilities bridge-utils dh-autoreconf vim git squashfs-tools p7zip-full</div><div class="line"></div><div class="line">./configure --target-list=mipsel-softmmu --prefix=/usr/local</div><div class="line"></div><div class="line">export LANG=en_US:zh_CN.UTF-8</div><div class="line">export LC_ALL=C</div><div class="line"></div><div class="line">sudo make &amp;&amp; make install</div><div class="line"></div><div class="line">cd ~</div><div class="line"></div><div class="line">dd if=/dev/zero of=Desktop/share.img bs=1M count=350</div><div class="line">mkfs.ext4 Desktop/share.img</div><div class="line">mkdir /tmp/share</div><div class="line">sudo mount -o loop Desktop/share.img /tmp/share</div><div class="line"></div><div class="line">//binwalk</div><div class="line">git clone https://github.com/devttys0/binwalk</div><div class="line">sudo python setup.py install</div><div class="line">sudo apt-get install python-lzma</div><div class="line">binwalk -e ...bin</div><div class="line"></div><div class="line">sudo qemu-system-mipsel -kernel openwrt-malta-le-vmlinux-initramfs.elf -M malta -net nic,vlan=0,macaddr=00:33:33:33:33:33 -net tap,vlan=0,ifname=tap0,script=no -serial tcp::6666,server -nographic -drive file=Desktop/share.img</div><div class="line"></div><div class="line">telnet localhost 6666</div><div class="line"> ##Enter</div><div class="line"> ##dmesg | grep &quot;350 MiB&quot;</div><div class="line">mount -t ext4 /dev/sda /overlay</div><div class="line">chroot /overlay/squashfs-root/</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="mac-截图"><a href="#mac-截图" class="headerlink" title="mac 截图"></a>mac 截图</h2><p>shift + command +4   截并保存在桌面<br>shift + ctrl + command +4 截并不保存成文件</p>
+<h2 id="mac-共享给ubuntu"><a href="#mac-共享给ubuntu" class="headerlink" title="mac 共享给ubuntu"></a>mac 共享给ubuntu</h2><p>输入帐号密码</p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/16158621.jpg" alt=""></p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/82912201.jpg" alt=""></p>
+<h2 id="ceye-io"><a href="#ceye-io" class="headerlink" title="ceye.io"></a>ceye.io</h2><p><a href="http://ceye.io/introduce" target="_blank" rel="external">http://ceye.io/introduce</a></p>
+<p>x382au.ceye.io  以这个域名结尾的都可以统计到次数，ip,user-agent.<br>域名或者request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#curl http://httprequest.test.x382au.ceye.io/hello/\?p\=httptest</div><div class="line">#nslookup http://httprequest.test.x382au.ceye.io</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/05/24/2016-05-24-qemu/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/05/24/2016-05-24-qemu/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/06/01/2016-06-01-book-baby/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    准爸爸必修课
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/05/20/2016-05-20-zptnote/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">ZPT日常作战</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/13/appstore_certificate/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/Certificate_for_Kid_Template.jpg)" alt="Appstore证书" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/10/13/appstore_certificate/" class="title">Appstore证书</a></p>
+                            <p class="item-date"><time datetime="2016-10-13T12:46:25.000Z" itemprop="datePublished">2016-10-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/17/2016-09-17-nginx-look/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-14/35860897.jpg)" alt="nginx 初体验(Todo)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Server/">Server</a></p>
+                            <p class="item-title"><a href="/2016/09/17/2016-09-17-nginx-look/" class="title">nginx 初体验(Todo)</a></p>
+                            <p class="item-date"><time datetime="2016-09-17T12:46:25.000Z" itemprop="datePublished">2016-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/12/docker-env/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg)" alt="Docker Node开发环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/12/docker-env/" class="title">Docker Node开发环境</a></p>
+                            <p class="item-date"><time datetime="2016-09-12T12:46:25.000Z" itemprop="datePublished">2016-09-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/08/2016-09-08-docker-ss/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/92560022.jpg)" alt="docker 搭建ss" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/08/2016-09-08-docker-ss/" class="title">docker 搭建ss</a></p>
+                            <p class="item-date"><time datetime="2016-09-08T12:46:25.000Z" itemprop="datePublished">2016-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/07/2016-09-07-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/43360900.jpg)" alt="Docker安装" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/07/2016-09-07-docker/" class="title">Docker安装</a></p>
+                            <p class="item-date"><time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 winfan<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://winfan.xyz/2016/05/24/2016-05-24-qemu/';
+        
+        this.page.identifier = '2016-05-24-qemu';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

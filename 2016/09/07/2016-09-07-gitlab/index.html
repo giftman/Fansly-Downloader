@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>docker中gitlab部署记录 | WINFAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="docker中gitlab部署记录https://github.com/sameersbn/docker-gitlab
+引言通过Dockefile建立一个Gitlab容器的镜像。使用版本gitlab:8.11.4
+硬件要求CPU
+1核能满足个100用户，但响应速度可能会受到影响。
+2核最多支持100个用户。
+4核最多支持1,000个用户。
+8核最多支持10,000个用户。
+
+内存
+如果使用512M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker中gitlab部署记录">
+<meta property="og:url" content="http://winfan.xyz/2016/09/07/2016-09-07-gitlab/index.html">
+<meta property="og:site_name" content="WINFAN">
+<meta property="og:description" content="docker中gitlab部署记录https://github.com/sameersbn/docker-gitlab
+引言通过Dockefile建立一个Gitlab容器的镜像。使用版本gitlab:8.11.4
+硬件要求CPU
+1核能满足个100用户，但响应速度可能会受到影响。
+2核最多支持100个用户。
+4核最多支持1,000个用户。
+8核最多支持10,000个用户。
+
+内存
+如果使用512M">
+<meta property="og:image" content="http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg">
+<meta property="og:updated_time" content="2016-10-14T08:47:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker中gitlab部署记录">
+<meta name="twitter:description" content="docker中gitlab部署记录https://github.com/sameersbn/docker-gitlab
+引言通过Dockefile建立一个Gitlab容器的镜像。使用版本gitlab:8.11.4
+硬件要求CPU
+1核能满足个100用户，但响应速度可能会受到影响。
+2核最多支持100个用户。
+4核最多支持1,000个用户。
+8核最多支持10,000个用户。
+
+内存
+如果使用512M">
+<meta name="twitter:image" content="http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="WINFAN" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85411784-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">WINFAN</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Winfan</h2>
+            <h3 id="title">Android &amp; React Native Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>GuangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/giftman/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                14
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                32
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/giftman/hexo-theme-icarus" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-2016-09-07-gitlab" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            docker中gitlab部署记录
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/07/2016-09-07-gitlab/">
+            <time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/git/">git</a>, <a class="tag-link" href="/tags/gitlab/">gitlab</a>, <a class="tag-link" href="/tags/team/">team</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="docker中gitlab部署记录"><a href="#docker中gitlab部署记录" class="headerlink" title="docker中gitlab部署记录"></a>docker中gitlab部署记录</h2><p><a href="https://github.com/sameersbn/docker-gitlab" target="_blank" rel="external">https://github.com/sameersbn/docker-gitlab</a></p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>通过Dockefile建立一个Gitlab容器的镜像。使用版本gitlab:<strong>8.11.4</strong></p>
+<h2 id="硬件要求"><a href="#硬件要求" class="headerlink" title="硬件要求"></a>硬件要求</h2><h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><ul>
+<li>1核能满足个100用户，但响应速度可能会受到影响。</li>
+<li>2核最多支持100个用户。</li>
+<li>4核最多支持1,000个用户。</li>
+<li>8核最多支持10,000个用户。</li>
+</ul>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
+<li>如果使用512Mb内存，那么Gitlab会运行得非常缓慢，并且需要250Mb的虚拟内存。</li>
+<li>768Mb是最低内存大小，我们並不推荐。 <strong>(521Mb虚拟机运行会报耗时过长错误)</strong></li>
+<li>1GB内存能支持100个用户（仓库需要占用250Mb，否则Git需要使用交换空间）</li>
+<li>2GB是推荐的大小，能支持1,000个用户。</li>
+<li>4GB能支持10,000个用户。</li>
+</ul>
+<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>所需要的存储空间，很大程度上取决于Gitlab中有多少仓库需要存储。尽管如此，你应该准备2倍于实际所占大小的空间。因为<a href="https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/structure.md" target="_blank" rel="external">Gitlab satellites</a>会建立每个仓库的额外副本。</p>
+<p>如果未来想灵活的增加存储空间，请考虑使用LVM，当需要的时候，可以添加更多的硬盘。</p>
+<p>除了支持本地存储以外，还支持挂载卷：网络文件（NFS）协议。卷可以位于一个文件服务器、网络存储（NAS）、存储区域网络（SAN）、亚马逊云服务（AWS），弹性存储（EBS）。</p>
+<p>如果你有足够的内存和较新的CPU，那么Gitlab的速度取决于硬盘的寻道速度。使用高速硬盘（7200转/分钟）或固态硬盘（SSD）将提高Gitlab的响应速度。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h3 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h3><p><code>wget -qO- https://get.docker.com/ | sh</code></p>
+<p><code>systemctl start docker</code></p>
+<p><code>chkconfig docker on</code></p>
+<h3 id="centos6-5"><a href="#centos6-5" class="headerlink" title="centos6.5"></a>centos6.5</h3><p><code>wget -qO- https://get.docker.com/ | sh</code></p>
+<p><code>service docker start</code></p>
+<p><code>chkconfig docker on /systemctl enable docker</code></p>
+<h4 id="docker-1-8及以上推荐用docker-compose"><a href="#docker-1-8及以上推荐用docker-compose" class="headerlink" title="docker 1.8及以上推荐用docker-compose"></a>docker 1.8及以上推荐用docker-compose</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /tmp</div><div class="line">wget https://raw.githubusercontent.com/sameersbn/docker-gitlab/master/docker-compose.yml </div><div class="line">curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh &gt; /usr/local/bin/docker-compose</div><div class="line">chmod +x /usr/local/bin/docker-compose</div><div class="line">docker-compose up</div></pre></td></tr></table></figure>
+<h4 id="docker-1-7以下手动运行"><a href="#docker-1-7以下手动运行" class="headerlink" title="docker 1.7以下手动运行"></a>docker 1.7以下手动运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#这里的DB信息如果更改 第三行运行gitlab 时也要相应增加对应的环境变量</div><div class="line">docker run --name gitlab-postgresql -d \</div><div class="line">    --env &apos;DB_NAME=gitlabhq_production&apos; \</div><div class="line">    --env &apos;DB_USER=gitlab&apos; --env &apos;DB_PASS=password&apos; \</div><div class="line">    --env &apos;DB_EXTENSION=pg_trgm&apos; \</div><div class="line">    --volume /srv/docker/gitlab/postgresql:/var/lib/postgresql \</div><div class="line">    sameersbn/postgresql:9.5-1</div><div class="line">    </div><div class="line">docker run --name gitlab-redis -d \</div><div class="line">    --volume /srv/docker/gitlab/redis:/var/lib/redis \</div><div class="line">    sameersbn/redis:latest</div><div class="line">    </div><div class="line">###配置上基本上按照github上的，必须设置的是DB,SECRET,OPT那三个key，这里还增加了host,smtp_user,smtp_pass的设置，默认用的gmail,设置gmail时需要先在gamil那里开启允许应用连接，改变了本地存储目录为/data</div><div class="line">docker run --name gitlab -d \</div><div class="line">    --link gitlab-postgresql:postgresql --link gitlab-redis:redisio \</div><div class="line">    --publish 10022:22 --publish 10080:80 \</div><div class="line">     --env &apos;GITLAB_HOST=106.75.192.252&apos; \</div><div class="line">     --env &apos;SMTP_USER=chufan617@gmail.com&apos; \</div><div class="line">    --env &apos;SMTP_PASS=mygailpasswd&apos; \</div><div class="line">    --env &apos;GITLAB_PORT=10080&apos; --env &apos;GITLAB_SSH_PORT=10022&apos; \</div><div class="line">    --env &apos;GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alpha-numeric-string&apos; \</div><div class="line">    --env &apos;GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alpha-numeric-string&apos; \</div><div class="line">    --env &apos;GITLAB_SECRETS_OTP_KEY_BASE=long-and-random-alpha-numeric-string&apos; \</div><div class="line">    --volume /srv/docker/gitlab/gitlab:/home/git/data \</div><div class="line">    sameersbn/gitlab:8.11.4</div></pre></td></tr></table></figure>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h4 id="端口冲突"><a href="#端口冲突" class="headerlink" title="端口冲突"></a>端口冲突</h4><p>需要在宿主机开放端口，本例中的是10080及10022，宿主机8080端口也不可以被占用，否则也会报超时处理错误，virtualBox模拟的机器也只要检查自己的端口，不要检查virtualBox的宿主机…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#开放端口</span></div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 10022 -j ACCEPT</div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 10080 -j ACCEPT</div><div class="line"><span class="comment">#然后保存：</span></div><div class="line">/etc/init.d/iptables save</div><div class="line"></div><div class="line"><span class="comment">#查看打开的端口：</span></div><div class="line">/etc/init.d/iptables status</div></pre></td></tr></table></figure>
+<h3 id="邮件"><a href="#邮件" class="headerlink" title="邮件"></a>邮件</h3><p>邮件设置gmail要开通了imap及<a href="http://www.google.com/accounts/DisplayUnlockCaptcha" target="_blank" rel="external">接受未知位置应用登录](http://www.google.com/accounts/DisplayUnlockCaptcha</a>)，运行gitlab时要设置smtp_user及smtp_passwd即可。其它问题到可以用root用户在设置那里看一下production_log,gitlab那里看一下issue。</p>
+<h4 id="Docker速度过慢"><a href="#Docker速度过慢" class="headerlink" title="Docker速度过慢"></a>Docker速度过慢</h4><p>香港主机快到不可想像，一开始用公司网络不能活，简直浪费时间，国内机器可以用<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">加速器</a> ,1.8以下手动把那地址加上去也可以用，总算可以pull到。</p>
+<h2 id="备份及回滚测试"><a href="#备份及回滚测试" class="headerlink" title="备份及回滚测试"></a>备份及回滚测试</h2><p>docker化备份比较简单，只需要将/srv/docker/gitlab 这个目录的内容复制到新机器或者新目录，保持原样配置volume更改为新地址即可原样运行成功。gitlab上也有每天备份方便回滚。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">在Docker中部署GitLab</a></li>
+<li><a href="https://index.docker.io/u/sameersbn/gitlab/" target="_blank" rel="external">https://index.docker.io/u/sameersbn/gitlab/</a></li>
+<li><a href="https://docs.docker.com/compose/install/" target="_blank" rel="external">https://docs.docker.com/compose/install/</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/07/2016-09-07-gitlab/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/09/07/2016-09-07-gitlab/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/09/07/2016-09-07-docker/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Docker安装
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/06/01/2016-06-01-book-baby/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">准爸爸必修课</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/13/appstore_certificate/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/Certificate_for_Kid_Template.jpg)" alt="Appstore证书" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/10/13/appstore_certificate/" class="title">Appstore证书</a></p>
+                            <p class="item-date"><time datetime="2016-10-13T12:46:25.000Z" itemprop="datePublished">2016-10-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/17/2016-09-17-nginx-look/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-14/35860897.jpg)" alt="nginx 初体验(Todo)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Server/">Server</a></p>
+                            <p class="item-title"><a href="/2016/09/17/2016-09-17-nginx-look/" class="title">nginx 初体验(Todo)</a></p>
+                            <p class="item-date"><time datetime="2016-09-17T12:46:25.000Z" itemprop="datePublished">2016-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/12/docker-env/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg)" alt="Docker Node开发环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/12/docker-env/" class="title">Docker Node开发环境</a></p>
+                            <p class="item-date"><time datetime="2016-09-12T12:46:25.000Z" itemprop="datePublished">2016-09-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/08/2016-09-08-docker-ss/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/92560022.jpg)" alt="docker 搭建ss" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/08/2016-09-08-docker-ss/" class="title">docker 搭建ss</a></p>
+                            <p class="item-date"><time datetime="2016-09-08T12:46:25.000Z" itemprop="datePublished">2016-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/07/2016-09-07-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/43360900.jpg)" alt="Docker安装" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/07/2016-09-07-docker/" class="title">Docker安装</a></p>
+                            <p class="item-date"><time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 winfan<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://winfan.xyz/2016/09/07/2016-09-07-gitlab/';
+        
+        this.page.identifier = '2016-09-07-gitlab';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

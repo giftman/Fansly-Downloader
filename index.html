@@ -1,37 +1,1892 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>WINFAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="WINFAN">
+<meta property="og:url" content="http://winfan.xyz/index.html">
+<meta property="og:site_name" content="WINFAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WINFAN">
+    
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+    
+        <link rel="alternate" href="/" title="WINFAN" type="application/atom+xml" />
+    
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85411784-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">WINFAN</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Winfan</h2>
+            <h3 id="title">Android &amp; React Native Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>GuangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/giftman/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                14
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                32
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/giftman/hexo-theme-icarus" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main">
+    <article id="post-appstore_certificate" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/10/13/appstore_certificate/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/Certificate_for_Kid_Template.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/10/13/appstore_certificate/">Appstore证书</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/10/13/appstore_certificate/">
+            <time datetime="2016-10-13T12:46:25.000Z" itemprop="datePublished">2016-10-13</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/appstore/">appstore</a>, <a class="tag-link" href="/tags/publish/">publish</a>, <a class="tag-link" href="/tags/xcode/">xcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Appstore-certificates"><a href="#Appstore-certificates" class="headerlink" title="Appstore certificates"></a>Appstore certificates</h2><h3 id="开发者需要"><a href="#开发者需要" class="headerlink" title="开发者需要"></a>开发者需要</h3><ul>
+<li>证书p12</li>
+<li>描述文件</li>
+</ul>
+<p>证书在本机生成csr然后生成即可。（dev/dis)</p>
+<p>描述文件是本地测试机和bundleId绑定的文件。要增加测试机直接导入文件，bundleId也可以直接创建，然后直接生成对应的描述文件。</p>
+<h4 id="others"><a href="#others" class="headerlink" title="others"></a>others</h4><ul>
+<li>bundleId 可以生成一份*号的方便测试（不包括充值那些功能）</li>
+<li>证书一年期，如果过期了要重新生成证书及描述文件</li>
+<li>需要发布的机器必须装上<strong>第一台机器</strong>导出的p12证书</li>
+</ul>
+<h4 id="not-confirm"><a href="#not-confirm" class="headerlink" title="not confirm?"></a>not confirm?</h4><ul>
+<li>删掉bundleId，包含它的profile会失效，删掉证书对线上或在用证书影响（待证)</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
+            
+    
+        <a href="http://winfan.xyz/2016/10/13/appstore_certificate/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/10/13/appstore_certificate/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-09-17-nginx-look" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/09/17/2016-09-17-nginx-look/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/35860897.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/17/2016-09-17-nginx-look/">nginx 初体验(Todo)</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/17/2016-09-17-nginx-look/">
+            <time datetime="2016-09-17T12:46:25.000Z" itemprop="datePublished">2016-09-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Server/">Server</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/env-setting/">env_setting</a>, <a class="tag-link" href="/tags/nginx/">nginx</a>, <a class="tag-link" href="/tags/server/">server</a>, <a class="tag-link" href="/tags/todo/">todo</a>, <a class="tag-link" href="/tags/tools/">tools</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="nginx-初"><a href="#nginx-初" class="headerlink" title="nginx 初"></a>nginx 初</h2><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li>centos + docker 负载</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/17/2016-09-17-nginx-look/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/09/17/2016-09-17-nginx-look/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-docker-env" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/09/12/docker-env/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/12/docker-env/">Docker Node开发环境</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/12/docker-env/">
+            <time datetime="2016-09-12T12:46:25.000Z" itemprop="datePublished">2016-09-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/env-setting/">env_setting</a>, <a class="tag-link" href="/tags/node/">node</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Docker开发环境"><a href="#Docker开发环境" class="headerlink" title="Docker开发环境"></a>Docker开发环境</h1><p><a href="http://mp.weixin.qq.com/s?__biz=MzAwODE0NDE0MA==&amp;mid=2652773063&amp;idx=2&amp;sn=1db80ad8e95349e38224cf8fbf4057ef&amp;scene=1&amp;srcid=0805MkUS3rhRaI5qOko1WJDp#wechat_redirect" target="_blank" rel="external">高质量Node.js微服务的编写和部署</a></p>
+<p>被上面的文章带坑了</p>
+<p>在时速云测试自动构建及自动上传时注册构建填的master ,创建容器时也是master分支即可</p>
+<p>昨天构建成功最后一步buffering to disk出错估计是时速云问题,隔天就好了。</p>
+<p><a href="https://github.com/giftman/docker_test" target="_blank" rel="external">github地址</a></p>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h4><blockquote>
+<p>node 现在用的是6.5,直接替换为4.5.0..这些就可以</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">FROM sameersbn/ubuntu:14.04.20160827</div><div class="line">MAINTAINER chufan@qq.com</div><div class="line"></div><div class="line">RUN  \</div><div class="line">  cd /opt &amp;&amp; \</div><div class="line">  wget http://nodejs.org/dist/v6.5.0/node-v6.5.0-linux-x64.tar.gz &amp;&amp; \</div><div class="line">  tar -xzf node-v6.5.0-linux-x64.tar.gz &amp;&amp; \</div><div class="line">  mv node-v6.5.0-linux-x64 node &amp;&amp; \</div><div class="line">  cd /usr/local/bin &amp;&amp; \</div><div class="line">  ln -s /opt/node/bin/* . &amp;&amp; \</div><div class="line">  DEBIAN_FRONTEND=noninteractive npm install -g nodemon --no-optional &amp;&amp; \</div><div class="line">  sudo ln -s /opt/node/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon &amp;&amp; \</div><div class="line">  rm -f /opt/node-v6.5.0-linux-x64.tar.gz</div><div class="line"></div><div class="line">WORKDIR   /src</div><div class="line"></div><div class="line">CMD [&quot;/bin/bash&quot;]</div></pre></td></tr></table></figure>
+<h4 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker build -t winfan/node-dev .</div><div class="line">docker run -i -t --rm \      </div><div class="line">      -p 3000:3000 \</div><div class="line">       -v `pwd`:/src \</div><div class="line">       winfan/node-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#add nodemon for dev</div><div class="line">npm install -g nodemon</div></pre></td></tr></table></figure>
+<p>启动应用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodemon app.js</div></pre></td></tr></table></figure></p>
+<p>一旦把镜像构建好了，我们就可以使用下面的语句运行一个容器了:</p>
+<p>让我们来看一看docker运行命令中发生了什么.</p>
+<p>-i 会在交互模式下启动容器(对比 -d 是在分离模式下). 这就意味一旦交互会话结束，容器就会退出.<br>-t 会分配一个pseudo-tty.<br>–rm 会在退出时移除容器及其文件系统.<br>-p 3000:3000 会将主机上的端口 3000 转发到容器上的端口3000.<br>-v <code>pwd</code>:/src<br>这句将会将当前的工作目录挂载到主机上(例如，我们的项目文件)容器中的 /src 里面. 我们将当前目录作为一个卷挂在，而不是使用Dockerfile中的ADD命令，那样我们在文本编辑器中做的任何修改都可以立即在容器中看到了.<br>winfan/node-dev 是要运行的docker镜像的名称和版本 – 这跟我们用来构建docker镜像时使用的名称和版本是相同的.</p>
+<p>由于Dockerfile指定了CMD [“/bin/bash”], 容器一启动，我们就会登录到一个bash shell环境中.</p>
+<h3 id="Base-Image"><a href="#Base-Image" class="headerlink" title="Base Image"></a>Base Image</h3><ul>
+<li>[x] Ubuntu (fork sameersbn/ubuntu add node and nodemon)</li>
+<li>[ ] node-argo 官方发布</li>
+<li>[ ] apline publish</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li>基于 Docker 开发 NodeJS 应用</li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzAwODE0NDE0MA==&amp;mid=2652773063&amp;idx=2&amp;sn=1db80ad8e95349e38224cf8fbf4057ef&amp;scene=1&amp;srcid=0805MkUS3rhRaI5qOko1WJDp#wechat_redirect" target="_blank" rel="external">高质量Node.js微服务的编写和部署</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/12/docker-env/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/09/12/docker-env/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-09-08-docker-ss" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/09/08/2016-09-08-docker-ss/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/92560022.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/08/2016-09-08-docker-ss/">docker 搭建ss</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/08/2016-09-08-docker-ss/">
+            <time datetime="2016-09-08T12:46:25.000Z" itemprop="datePublished">2016-09-08</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/overseas/">overseas</a>, <a class="tag-link" href="/tags/shadowsocks/">shadowsocks</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="docker-搭建ss"><a href="#docker-搭建ss" class="headerlink" title="docker 搭建ss"></a>docker 搭建ss</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker pull oddrationale/docker-shadowsocks</div><div class="line">#add $SSPASSWORD to ~/.bash_profile</div><div class="line">docker run -d -p 11984:11984 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 11984 -k $SSPASSWORD -m aes-256-cfb</div><div class="line">#ios 可以下载wingy，亲测有效 就是这么自然..</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/08/2016-09-08-docker-ss/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/09/08/2016-09-08-docker-ss/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-09-07-docker" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/09/07/2016-09-07-docker/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/43360900.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/07/2016-09-07-docker/">Docker安装</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/07/2016-09-07-docker/">
+            <time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/env-setting/">env_setting</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>centos 7.2 64位 / docker 1.8</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">yum -y update</div><div class="line">curl <span class="_">-s</span>SL https://get.docker.com/ | sh </div><div class="line">yum install -y docker-selinux</div><div class="line"><span class="comment">#启动</span></div><div class="line">systemctl start docker.service</div><div class="line"><span class="comment">#测试安装是否成功</span></div><div class="line">docker run hello-world</div><div class="line"><span class="comment">#开机自启动</span></div><div class="line">systemctl <span class="built_in">enable</span> docker.service</div><div class="line"></div><div class="line"><span class="comment">#开放端口示例</span></div><div class="line">firewall-cmd --state</div><div class="line"><span class="comment">#看开机自运行程序</span></div><div class="line">systemctl list-unit-files | grep firewall</div><div class="line"><span class="comment">#...虚拟机关掉...</span></div><div class="line">systemctl <span class="built_in">disable</span> firewalld</div><div class="line"></div><div class="line"><span class="comment">#ip</span></div><div class="line">ip ad | less</div><div class="line"></div><div class="line"><span class="comment">#查看现运行占内存进程</span></div><div class="line">ps aux | grep docker</div></pre></td></tr></table></figure>
+<h2 id="Docker速度过慢"><a href="#Docker速度过慢" class="headerlink" title="Docker速度过慢"></a>Docker速度过慢</h2><p>香港主机快到不可想像，一开始用公司网络不能活，简直浪费时间，国内机器可以用<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">加速器</a> ,1.8以下手动把那地址加上去也可以用，总算可以pull到。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>docker 用镜像image运行起来的容器叫container,要删掉image需要先删掉container，要删掉container当然要先停了container,一般都是docker stop container &amp;&amp; docker rm container  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div><div class="line">docker search hello</div><div class="line">docker stop/restart/start/pause/unpause</div><div class="line">docker -h</div><div class="line">docker commit container</div><div class="line">docker push  #需要docker.io 即docker hub帐号</div><div class="line"></div><div class="line">#常见删掉image需要</div><div class="line">docker stop container &amp;&amp; docker rm container &amp;&amp; docker rmi image</div><div class="line"></div><div class="line">#批量删除none的image镜像,</div><div class="line">docker ps -a | grep &quot;Exited&quot; | awk &apos;&#123;print $1&#125;&apos; | xargs docker stop </div><div class="line">docker ps -a | grep &quot;Exited&quot; | awk &apos;&#123;print $1&#125;&apos; | xargs docker rm </div><div class="line">docker images | grep none | awk &apos;&#123;print $3&#125;&apos; |xargs docker rmi</div></pre></td></tr></table></figure>
+<h2 id="Docker-神器docker-compose"><a href="#Docker-神器docker-compose" class="headerlink" title="Docker 神器docker-compose"></a>Docker 神器docker-compose</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh &gt; /usr/<span class="built_in">local</span>/bin/docker-compose</div><div class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#常用命令与docker兼容</span></div><div class="line">docker-compose -h</div></pre></td></tr></table></figure>
+<h2 id="未涉及"><a href="#未涉及" class="headerlink" title="未涉及"></a>未涉及</h2><ul>
+<li>swarm/多线程/..</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://dockone.io/article/620" target="_blank" rel="external">CentOS 7上安装Docker 1.8 - DockOne.io</a></li>
+<li><a href="http://www.centoscn.com/CentOS/config/2016/0830/7861.html" target="_blank" rel="external">CentOS7中关闭firewall，并使用iptables管理防火墙centos</a></li>
+<li><a href="https://github.com/widuu/chinese_docker" target="_blank" rel="external">widuu/chinese_docker docker常用命令</a></li>
+<li><a href="http://cholerae.com/2015/04/13/-%E7%BF%BB%E8%AF%91-Docker-Compose%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" target="_blank" rel="external">[翻译]Docker Compose工具快速入门</a></li>
+<li><a href="http://xiaorui.cc/2015/03/11/docker%e5%bc%ba%e5%88%b6%e6%89%b9%e9%87%8f%e5%88%a0%e9%99%a4none%e7%9a%84image%e9%95%9c%e5%83%8f/" target="_blank" rel="external">docker强制批量删除none的image镜像</a></li>
+<li><a href="http://www.docker.org.cn/book/docker/docker-search-image-6.html" target="_blank" rel="external">Docker入门教程</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/07/2016-09-07-docker/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/09/07/2016-09-07-docker/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-09-07-gitlab" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/09/07/2016-09-07-gitlab/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/07/2016-09-07-gitlab/">docker中gitlab部署记录</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/07/2016-09-07-gitlab/">
+            <time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/git/">git</a>, <a class="tag-link" href="/tags/gitlab/">gitlab</a>, <a class="tag-link" href="/tags/team/">team</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="docker中gitlab部署记录"><a href="#docker中gitlab部署记录" class="headerlink" title="docker中gitlab部署记录"></a>docker中gitlab部署记录</h2><p><a href="https://github.com/sameersbn/docker-gitlab" target="_blank" rel="external">https://github.com/sameersbn/docker-gitlab</a></p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>通过Dockefile建立一个Gitlab容器的镜像。使用版本gitlab:<strong>8.11.4</strong></p>
+<h2 id="硬件要求"><a href="#硬件要求" class="headerlink" title="硬件要求"></a>硬件要求</h2><h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><ul>
+<li>1核能满足个100用户，但响应速度可能会受到影响。</li>
+<li>2核最多支持100个用户。</li>
+<li>4核最多支持1,000个用户。</li>
+<li>8核最多支持10,000个用户。</li>
+</ul>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
+<li>如果使用512Mb内存，那么Gitlab会运行得非常缓慢，并且需要250Mb的虚拟内存。</li>
+<li>768Mb是最低内存大小，我们並不推荐。 <strong>(521Mb虚拟机运行会报耗时过长错误)</strong></li>
+<li>1GB内存能支持100个用户（仓库需要占用250Mb，否则Git需要使用交换空间）</li>
+<li>2GB是推荐的大小，能支持1,000个用户。</li>
+<li>4GB能支持10,000个用户。</li>
+</ul>
+<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>所需要的存储空间，很大程度上取决于Gitlab中有多少仓库需要存储。尽管如此，你应该准备2倍于实际所占大小的空间。因为<a href="https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/structure.md" target="_blank" rel="external">Gitlab satellites</a>会建立每个仓库的额外副本。</p>
+<p>如果未来想灵活的增加存储空间，请考虑使用LVM，当需要的时候，可以添加更多的硬盘。</p>
+<p>除了支持本地存储以外，还支持挂载卷：网络文件（NFS）协议。卷可以位于一个文件服务器、网络存储（NAS）、存储区域网络（SAN）、亚马逊云服务（AWS），弹性存储（EBS）。</p>
+<p>如果你有足够的内存和较新的CPU，那么Gitlab的速度取决于硬盘的寻道速度。使用高速硬盘（7200转/分钟）或固态硬盘（SSD）将提高Gitlab的响应速度。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h3 id="centos7"><a href="#centos7" class="headerlink" title="centos7"></a>centos7</h3><p><code>wget -qO- https://get.docker.com/ | sh</code></p>
+<p><code>systemctl start docker</code></p>
+<p><code>chkconfig docker on</code></p>
+<h3 id="centos6-5"><a href="#centos6-5" class="headerlink" title="centos6.5"></a>centos6.5</h3><p><code>wget -qO- https://get.docker.com/ | sh</code></p>
+<p><code>service docker start</code></p>
+<p><code>chkconfig docker on /systemctl enable docker</code></p>
+<h4 id="docker-1-8及以上推荐用docker-compose"><a href="#docker-1-8及以上推荐用docker-compose" class="headerlink" title="docker 1.8及以上推荐用docker-compose"></a>docker 1.8及以上推荐用docker-compose</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /tmp</div><div class="line">wget https://raw.githubusercontent.com/sameersbn/docker-gitlab/master/docker-compose.yml </div><div class="line">curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh &gt; /usr/local/bin/docker-compose</div><div class="line">chmod +x /usr/local/bin/docker-compose</div><div class="line">docker-compose up</div></pre></td></tr></table></figure>
+<h4 id="docker-1-7以下手动运行"><a href="#docker-1-7以下手动运行" class="headerlink" title="docker 1.7以下手动运行"></a>docker 1.7以下手动运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#这里的DB信息如果更改 第三行运行gitlab 时也要相应增加对应的环境变量</div><div class="line">docker run --name gitlab-postgresql -d \</div><div class="line">    --env &apos;DB_NAME=gitlabhq_production&apos; \</div><div class="line">    --env &apos;DB_USER=gitlab&apos; --env &apos;DB_PASS=password&apos; \</div><div class="line">    --env &apos;DB_EXTENSION=pg_trgm&apos; \</div><div class="line">    --volume /srv/docker/gitlab/postgresql:/var/lib/postgresql \</div><div class="line">    sameersbn/postgresql:9.5-1</div><div class="line">    </div><div class="line">docker run --name gitlab-redis -d \</div><div class="line">    --volume /srv/docker/gitlab/redis:/var/lib/redis \</div><div class="line">    sameersbn/redis:latest</div><div class="line">    </div><div class="line">###配置上基本上按照github上的，必须设置的是DB,SECRET,OPT那三个key，这里还增加了host,smtp_user,smtp_pass的设置，默认用的gmail,设置gmail时需要先在gamil那里开启允许应用连接，改变了本地存储目录为/data</div><div class="line">docker run --name gitlab -d \</div><div class="line">    --link gitlab-postgresql:postgresql --link gitlab-redis:redisio \</div><div class="line">    --publish 10022:22 --publish 10080:80 \</div><div class="line">     --env &apos;GITLAB_HOST=106.75.192.252&apos; \</div><div class="line">     --env &apos;SMTP_USER=chufan617@gmail.com&apos; \</div><div class="line">    --env &apos;SMTP_PASS=mygailpasswd&apos; \</div><div class="line">    --env &apos;GITLAB_PORT=10080&apos; --env &apos;GITLAB_SSH_PORT=10022&apos; \</div><div class="line">    --env &apos;GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alpha-numeric-string&apos; \</div><div class="line">    --env &apos;GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alpha-numeric-string&apos; \</div><div class="line">    --env &apos;GITLAB_SECRETS_OTP_KEY_BASE=long-and-random-alpha-numeric-string&apos; \</div><div class="line">    --volume /srv/docker/gitlab/gitlab:/home/git/data \</div><div class="line">    sameersbn/gitlab:8.11.4</div></pre></td></tr></table></figure>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h4 id="端口冲突"><a href="#端口冲突" class="headerlink" title="端口冲突"></a>端口冲突</h4><p>需要在宿主机开放端口，本例中的是10080及10022，宿主机8080端口也不可以被占用，否则也会报超时处理错误，virtualBox模拟的机器也只要检查自己的端口，不要检查virtualBox的宿主机…</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#开放端口</span></div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 10022 -j ACCEPT</div><div class="line">/sbin/iptables -I INPUT -p tcp --dport 10080 -j ACCEPT</div><div class="line"><span class="comment">#然后保存：</span></div><div class="line">/etc/init.d/iptables save</div><div class="line"></div><div class="line"><span class="comment">#查看打开的端口：</span></div><div class="line">/etc/init.d/iptables status</div></pre></td></tr></table></figure>
+<h3 id="邮件"><a href="#邮件" class="headerlink" title="邮件"></a>邮件</h3><p>邮件设置gmail要开通了imap及<a href="http://www.google.com/accounts/DisplayUnlockCaptcha" target="_blank" rel="external">接受未知位置应用登录](http://www.google.com/accounts/DisplayUnlockCaptcha</a>)，运行gitlab时要设置smtp_user及smtp_passwd即可。其它问题到可以用root用户在设置那里看一下production_log,gitlab那里看一下issue。</p>
+<h4 id="Docker速度过慢"><a href="#Docker速度过慢" class="headerlink" title="Docker速度过慢"></a>Docker速度过慢</h4><p>香港主机快到不可想像，一开始用公司网络不能活，简直浪费时间，国内机器可以用<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">加速器</a> ,1.8以下手动把那地址加上去也可以用，总算可以pull到。</p>
+<h2 id="备份及回滚测试"><a href="#备份及回滚测试" class="headerlink" title="备份及回滚测试"></a>备份及回滚测试</h2><p>docker化备份比较简单，只需要将/srv/docker/gitlab 这个目录的内容复制到新机器或者新目录，保持原样配置volume更改为新地址即可原样运行成功。gitlab上也有每天备份方便回滚。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">在Docker中部署GitLab</a></li>
+<li><a href="https://index.docker.io/u/sameersbn/gitlab/" target="_blank" rel="external">https://index.docker.io/u/sameersbn/gitlab/</a></li>
+<li><a href="https://docs.docker.com/compose/install/" target="_blank" rel="external">https://docs.docker.com/compose/install/</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/07/2016-09-07-gitlab/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/09/07/2016-09-07-gitlab/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-06-01-book-baby" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/06/01/2016-06-01-book-baby/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/61209269.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/06/01/2016-06-01-book-baby/">准爸爸必修课</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/06/01/2016-06-01-book-baby/">
+            <time datetime="2016-06-01T12:46:25.000Z" itemprop="datePublished">2016-06-01</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Other/">Other</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/baby/">baby</a>, <a class="tag-link" href="/tags/booknote/">booknote</a>, <a class="tag-link" href="/tags/life/">life</a>, <a class="tag-link" href="/tags/other/">other</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>分娩分三产程:从正规宫缩临产到宫口开全的过程</p>
+<h3 id="第一产程-时间较长不同人不一样，忍痛-尽量找空隙休息，储存体力"><a href="#第一产程-时间较长不同人不一样，忍痛-尽量找空隙休息，储存体力" class="headerlink" title="第一产程: 时间较长不同人不一样，忍痛,尽量找空隙休息，储存体力"></a>第一产程: 时间较长不同人不一样，忍痛,尽量找空隙休息，储存体力</h3><ul>
+<li>正规宫缩 阵痛间隔和持续时间一定，如间隔5-6分钟，持续半分钟，痛程序逐渐加剧，间隔时间逐渐缩短，持续时间逐渐变长。</li>
+<li>会越来越痛</li>
+</ul>
+<h3 id="第二产程-忍痛同时付出努力-最多2-3小时"><a href="#第二产程-忍痛同时付出努力-最多2-3小时" class="headerlink" title="第二产程: 忍痛同时付出努力 最多2-3小时"></a>第二产程: 忍痛同时付出努力 最多2-3小时</h3><ul>
+<li>产妇找到自己最舒服的姿势</li>
+<li>感觉一阵宫缩来袭时，配合强烈的宫缩用力屏气，力气用在肛门口，就是便秘解大便的感觉。</li>
+<li>屏气，一定不能把气吐出来，而且一口气屏得越久越好。一阵宫红缩持续将近一分钟，没有人生孩子的时候能一口气屏那么久，所以中间要换气。<br>要知道，宫缩是很珍贵的，不配合宫缩的用力就是浪费力气，所以，这就要求宫缩来的时候要不惜力气，中间换气的时候要短，马上深吸气继续向下用力，充分利用宫缩的这半分钟。<br>等到一阵宫缩过去了，身体就要彻底放松，好好调整一下呼吸，等待下一波。<br>所以，第二产程用力的时候，应该是间隔有节奏地向下屏气，如果感觉有大便解出来了，就说明力气差不多用对地方了。<br>是的，就是那种大便解出来的感觉。</li>
+<li><p>产力的三部分组成:<br> 1 子宫的收缩力  (最重要的，即宫缩)<br> 2 腹肌给的压力 (更多是被动力)<br> 3 盆底肌给的旋转力 (只要有便秘时解大便的力气，生孩子也就够了)<br>产力不能靠锻炼，但是可以积蓄，即第一产程的尽量休息。</p>
+</li>
+<li><p>剖腹产（具体情况定，听医生意见)</p>
+</li>
+</ul>
+<h3 id="如何更好地陪产-陪伴"><a href="#如何更好地陪产-陪伴" class="headerlink" title="如何更好地陪产 (陪伴)"></a>如何更好地陪产 (陪伴)</h3><ul>
+<li>进行充分沟通，做好分娩期心理调整，播歌，打气。</li>
+<li>陪产解决两个问题:一个是前面说的疼痛，另一个是对于未知的恐惧。对未知，对于未来失去掌控的恐惧感，需要心理上的安慰与支持。目的就是尽可能地缓解疼痛以及克服恐惧。</li>
+<li>不要做的:<br>1 要陪伴鼓励理性信任医生</li>
+</ul>
+<h3 id="一起度过产后特殊时期"><a href="#一起度过产后特殊时期" class="headerlink" title="一起度过产后特殊时期"></a>一起度过产后特殊时期</h3>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/06/01/2016-06-01-book-baby/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/06/01/2016-06-01-book-baby/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-05-24-qemu" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/05/24/2016-05-24-qemu/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/99604908.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/24/2016-05-24-qemu/">qemu</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/24/2016-05-24-qemu/">
+            <time datetime="2016-05-24T12:46:25.000Z" itemprop="datePublished">2016-05-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hack/">Hack</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hack/">hack</a>, <a class="tag-link" href="/tags/qemu/">qemu</a>, <a class="tag-link" href="/tags/tool/">tool</a>, <a class="tag-link" href="/tags/zpt/">zpt</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>some times we want to write about how we success ,but here just describe how pain I had suffered.</p>
+</blockquote>
+<p>Reference: Jeremy <a href="http://m.77169.net/HTML/226392.html" target="_blank" rel="external">http://m.77169.net/HTML/226392.html</a></p>
+<h3 id="安装依赖，下载qemu"><a href="#安装依赖，下载qemu" class="headerlink" title="安装依赖，下载qemu"></a>安装依赖，下载qemu</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y libglib2.0-dev uml-utilities bridge-utils dh-autoreconf vim git</div><div class="line"></div><div class="line">wget http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2 </div><div class="line"></div><div class="line">wget https://downloads.openwrt.org/snapshots/trunk/malta/generic/openwrt-malta-le-vmlinux-initramfs.elf</div></pre></td></tr></table></figure>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/69481813.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/80615105.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/20791963.jpg" alt=""></p>
+<h3 id="1-添加网桥"><a href="#1-添加网桥" class="headerlink" title="1 添加网桥"></a>1 添加网桥</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/55194388.jpg" alt=""><br>创建后 sudo /sbin/ifup tap0 &amp;&amp; sudo /sbin/ifup br0  启动</p>
+<h3 id="2-创建ubuntu与qemu虚拟之间的共享盘"><a href="#2-创建ubuntu与qemu虚拟之间的共享盘" class="headerlink" title="2 创建ubuntu与qemu虚拟之间的共享盘"></a>2 创建ubuntu与qemu虚拟之间的共享盘</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/74696503.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/41611918.jpg" alt=""></p>
+<h3 id="3-binwalk-解压固件"><a href="#3-binwalk-解压固件" class="headerlink" title="3 binwalk 解压固件"></a>3 binwalk 解压固件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//binwalk</div><div class="line">git clone https://github.com/devttys0/binwalk</div><div class="line">sudo python setup.py install</div><div class="line">sudo apt-get install python-lzma</div><div class="line">binwalk -e NW774.bin</div></pre></td></tr></table></figure>
+<p>解压完有以下内容，将squashfs-root 复制到上一步的共享盘中即/tmp/share,squashfs-root 里面有bin这些文件，新复制内容到里面需要重新启动qemu</p>
+<p><img src="http:///img/qemu_10.png" alt="img"></p>
+<h3 id="4-通过telnet-连接qemu虚拟器"><a href="#4-通过telnet-连接qemu虚拟器" class="headerlink" title="4 通过telnet 连接qemu虚拟器"></a>4 通过telnet 连接qemu虚拟器</h3><p><code>telnet localhost 6666</code></p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/85307953.jpg" alt=""></p>
+<h3 id="5-chroot-到从NW774-bin解压的文件"><a href="#5-chroot-到从NW774-bin解压的文件" class="headerlink" title="5 chroot 到从NW774.bin解压的文件"></a>5 chroot 到从NW774.bin解压的文件</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/89948576.jpg" alt=""></p>
+<h4 id="可惜最后我有ubuntu-32位-1604-ubuntu-64位-1404-qemu-2-6-都会出现如上图错误，实验失败–"><a href="#可惜最后我有ubuntu-32位-1604-ubuntu-64位-1404-qemu-2-6-都会出现如上图错误，实验失败–" class="headerlink" title="可惜最后我有ubuntu 32位 1604/ubuntu 64位 1404/ qemu 2.6 都会出现如上图错误，实验失败–"></a>可惜最后我有ubuntu 32位 1604/ubuntu 64位 1404/ qemu 2.6 都会出现如上图错误，实验失败–</h4><p>执行过的shell 如下方便重现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"> #!/bin/bash</div><div class="line">wget http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2</div><div class="line">wget https://downloads.openwrt.org/snapshots/trunk/malta/generic/openwrt-malta-le-vmlinux-initramfs.elf</div><div class="line"></div><div class="line">apt-cache search glib2</div><div class="line"></div><div class="line">sudo apt-get install -y libglib2.0-dev uml-utilities bridge-utils dh-autoreconf vim git squashfs-tools p7zip-full</div><div class="line"></div><div class="line">./configure --target-list=mipsel-softmmu --prefix=/usr/local</div><div class="line"></div><div class="line">export LANG=en_US:zh_CN.UTF-8</div><div class="line">export LC_ALL=C</div><div class="line"></div><div class="line">sudo make &amp;&amp; make install</div><div class="line"></div><div class="line">cd ~</div><div class="line"></div><div class="line">dd if=/dev/zero of=Desktop/share.img bs=1M count=350</div><div class="line">mkfs.ext4 Desktop/share.img</div><div class="line">mkdir /tmp/share</div><div class="line">sudo mount -o loop Desktop/share.img /tmp/share</div><div class="line"></div><div class="line">//binwalk</div><div class="line">git clone https://github.com/devttys0/binwalk</div><div class="line">sudo python setup.py install</div><div class="line">sudo apt-get install python-lzma</div><div class="line">binwalk -e ...bin</div><div class="line"></div><div class="line">sudo qemu-system-mipsel -kernel openwrt-malta-le-vmlinux-initramfs.elf -M malta -net nic,vlan=0,macaddr=00:33:33:33:33:33 -net tap,vlan=0,ifname=tap0,script=no -serial tcp::6666,server -nographic -drive file=Desktop/share.img</div><div class="line"></div><div class="line">telnet localhost 6666</div><div class="line"> ##Enter</div><div class="line"> ##dmesg | grep &quot;350 MiB&quot;</div><div class="line">mount -t ext4 /dev/sda /overlay</div><div class="line">chroot /overlay/squashfs-root/</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="mac-截图"><a href="#mac-截图" class="headerlink" title="mac 截图"></a>mac 截图</h2><p>shift + command +4   截并保存在桌面<br>shift + ctrl + command +4 截并不保存成文件</p>
+<h2 id="mac-共享给ubuntu"><a href="#mac-共享给ubuntu" class="headerlink" title="mac 共享给ubuntu"></a>mac 共享给ubuntu</h2><p>输入帐号密码</p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/16158621.jpg" alt=""></p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/82912201.jpg" alt=""></p>
+<h2 id="ceye-io"><a href="#ceye-io" class="headerlink" title="ceye.io"></a>ceye.io</h2><p><a href="http://ceye.io/introduce" target="_blank" rel="external">http://ceye.io/introduce</a></p>
+<p>x382au.ceye.io  以这个域名结尾的都可以统计到次数，ip,user-agent.<br>域名或者request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#curl http://httprequest.test.x382au.ceye.io/hello/\?p\=httptest</div><div class="line">#nslookup http://httprequest.test.x382au.ceye.io</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/05/24/2016-05-24-qemu/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/05/24/2016-05-24-qemu/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-05-20-zptnote" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/05/20/2016-05-20-zptnote/" itemprop="url">
+            <img src="http://kcon.knownsec.com/static/images/product/lg/wallpaper-seebug-2-lg.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/20/2016-05-20-zptnote/">ZPT日常作战</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/20/2016-05-20-zptnote/">
+            <time datetime="2016-05-20T12:46:25.000Z" itemprop="datePublished">2016-05-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hack/">Hack</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hack/">hack</a>, <a class="tag-link" href="/tags/note/">note</a>, <a class="tag-link" href="/tags/todo/">todo</a>, <a class="tag-link" href="/tags/zpt/">zpt</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#ZPT日常作战</p>
+<h4 id="初战优秀记录"><a href="#初战优秀记录" class="headerlink" title="初战优秀记录"></a>初战优秀记录</h4><ol>
+<li><a href="http://www.wtoutiao.com/p/18bJeig.html" target="_blank" rel="external">ZoomEye+Seebug二进制恶魔果实的神奇力量初探与思考</a></li>
+<li><a href="http://s0m30ne.com/2016/04/25/Zoomeye-Pocsuite-%E5%B0%8F%E5%BF%83%E4%BD%A0%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%BC%E7%9D%9B/" target="_blank" rel="external">小心你背后的眼睛</a></li>
+<li><a href="http://www.wtoutiao.com/p/1d3BMFv.html" target="_blank" rel="external">poc其实没那么难写</a></li>
+<li>还有几篇忘记收藏了，找回来再补</li>
+</ol>
+<h3 id="History"><a href="#History" class="headerlink" title="History"></a>History</h3><h4 id="CouchDB-restful-api-的越来越多，写你的方便，安全由我们守护"><a href="#CouchDB-restful-api-的越来越多，写你的方便，安全由我们守护" class="headerlink" title="CouchDB (restful api ..的越来越多，写你的方便，安全由我们守护)"></a>CouchDB (restful api ..的越来越多，写你的方便，安全由我们守护)</h4><h4 id="docker-port-2375-remote-api"><a href="#docker-port-2375-remote-api" class="headerlink" title="docker port:2375 remote api"></a>docker port:2375 remote api</h4><h4 id="1-3-3c-proFTPd"><a href="#1-3-3c-proFTPd" class="headerlink" title="1.3.3c proFTPd"></a>1.3.3c proFTPd</h4><h4 id="磊科路由"><a href="#磊科路由" class="headerlink" title="磊科路由"></a>磊科路由</h4><p><a href="https://www.seebug.org/vuldb/ssvid-90227" target="_blank" rel="external">jeremie at seebug</a></p>
+<h4 id="ImageMagic-big-bang"><a href="#ImageMagic-big-bang" class="headerlink" title="ImageMagic(big bang)"></a>ImageMagic(big bang)</h4><p><a href="http://ricterz.me/posts/Write%20Up%3A%20Remote%20Command%20Execute%20in%20Wordpress%204.5.1?_=1463733258856" target="_blank" rel="external">Write Up: Remote Command Execute in Wordpress 4.5.1</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/05/20/2016-05-20-zptnote/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/05/20/2016-05-20-zptnote/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-01-12-git-githug" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/01/12/2016-01-12-git-githug/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/5649321.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/01/12/2016-01-12-git-githug/">Githug</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/01/12/2016-01-12-git-githug/">
+            <time datetime="2016-01-12T12:46:25.000Z" itemprop="datePublished">2016-01-12</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Tools/">Tools</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/fun/">fun</a>, <a class="tag-link" href="/tags/git/">git</a>, <a class="tag-link" href="/tags/tools/">tools</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>reset,rebase<br>reset 恢复到某一状态,保留修改待提交或者全部舍弃前面的修改<br>rebase 以某个版本为基础重新在它的基础上重新提交修改内容/以某个版本为基础交互修改log,sqush,reorder</p>
+<p>reset,chekcout<br>reset 以仓库内容覆盖<br>checkout 以Staging area 内容覆盖</p>
+<p>HEAD HEAD^ HEAD^1<br>git push origin  master<br>git push origin  test_branch</p>
+<p>其它实践再补充</p>
+<hr>
+<h4 id="Level-1-init"><a href="#Level-1-init" class="headerlink" title="Level 1: init"></a>Level 1: init</h4><p><code>$ git init</code></p>
+<h4 id="Level-2-config"><a href="#Level-2-config" class="headerlink" title="Level 2: config"></a>Level 2: config</h4><p><code>$ git config --global user.name &quot;winfan&quot;
+$ git config --global user.email &quot;winfan@123.com&quot;</code></p>
+<h4 id="Level-3-add"><a href="#Level-3-add" class="headerlink" title="Level 3: add"></a>Level 3: add</h4><p><code>$ git add README</code></p>
+<h4 id="Level-4-commit"><a href="#Level-4-commit" class="headerlink" title="Level 4: commit"></a>Level 4: commit</h4><p><code>$ git commit -m &quot;add R.. commit&quot;</code></p>
+<h4 id="Level-5-clone"><a href="#Level-5-clone" class="headerlink" title="Level 5: clone"></a>Level 5: clone</h4><p><code>$ git clone https://github.com/Gazler/cloneme</code></p>
+<h4 id="Level-6-clone-to-folder"><a href="#Level-6-clone-to-folder" class="headerlink" title="Level 6: clone_to_folder"></a>Level 6: clone_to_folder</h4><p><code>$ git clone https://github.com/Gazler/cloneme
+ my_cloned_repo</code></p>
+<h4 id="Level-7-ignore"><a href="#Level-7-ignore" class="headerlink" title="Level 7: ignore"></a>Level 7: ignore</h4><p><code>$ vim .gitignore # Add line &quot;*.swp&quot;</code></p>
+<h4 id="Level-8-include"><a href="#Level-8-include" class="headerlink" title="Level 8: include"></a>Level 8: include</h4><p><code>$ vim .gitignore # Add line &quot;*.a !lib.a&quot;</code></p>
+<h4 id="Level-9-status"><a href="#Level-9-status" class="headerlink" title="Level 9: status"></a>Level 9: status</h4><p><code>$ git status</code></p>
+<h4 id="Level-10-number-of-files-committed"><a href="#Level-10-number-of-files-committed" class="headerlink" title="Level 10: number_of_files_committed"></a>Level 10: number_of_files_committed</h4><p><code>$ git status</code></p>
+<h4 id="Level-11-rm"><a href="#Level-11-rm" class="headerlink" title="Level 11: rm"></a>Level 11: rm</h4><p><code>git rm deleteme.rb</code></p>
+<h4 id="Level-12-rm-cached-start-remove-from-staging-area"><a href="#Level-12-rm-cached-start-remove-from-staging-area" class="headerlink" title="Level 12: rm_cached //start  remove from staging area"></a>Level 12: rm_cached //start  remove from staging area</h4><p><code>$ git rm --cached deleteme.rb</code></p>
+<h4 id="Level-13-stash-git-stash-h"><a href="#Level-13-stash-git-stash-h" class="headerlink" title="Level 13: stash //git stash -h"></a>Level 13: stash //git stash -h</h4><p><code>$ git stash</code></p>
+<h4 id="Level-14-rename"><a href="#Level-14-rename" class="headerlink" title="Level 14: rename"></a>Level 14: rename</h4><p><code>$ git mv oldfile.txt newfile.txt</code></p>
+<h4 id="Level-15-restructure"><a href="#Level-15-restructure" class="headerlink" title="Level 15: restructure"></a>Level 15: restructure</h4><p><code>mkdir src
+$ git mv *.html src</code></p>
+<h4 id="Level-16-log"><a href="#Level-16-log" class="headerlink" title="Level 16: log"></a>Level 16: log</h4><p><code>$ git log</code></p>
+<h4 id="Level-17-tag"><a href="#Level-17-tag" class="headerlink" title="Level 17: tag"></a>Level 17: tag</h4><p><code>$ git tag new_tag</code></p>
+<h4 id="Level-18-push-tags-TODO"><a href="#Level-18-push-tags-TODO" class="headerlink" title="Level 18: push_tags //TODO"></a>Level 18: push_tags //TODO</h4><p><code>$ git push --tags origin master</code></p>
+<h4 id="Level-19-commit-amend-add-change-the-latest-commit-message"><a href="#Level-19-commit-amend-add-change-the-latest-commit-message" class="headerlink" title="Level 19: commit_amend  // add,change the latest commit message"></a>Level 19: commit_amend  // add,change the latest commit message</h4><p><code>$ git add forgotten_file.rb
+$ git commit --amend</code></p>
+<h4 id="Level-20-commit-in-future-my-answer-is-change-the-computer-time…"><a href="#Level-20-commit-in-future-my-answer-is-change-the-computer-time…" class="headerlink" title="Level 20: commit_in_future //my answer is change the computer time…"></a>Level 20: commit_in_future //my answer is change the computer time…</h4><p><code>$ git commit -m &quot;future&quot; --date=&quot;Sun Jan 3 13:40:06 2017 +0800&quot;</code></p>
+<h4 id="Level-21-reset-reset-checkout"><a href="#Level-21-reset-reset-checkout" class="headerlink" title="Level 21: reset //reset checkout"></a>Level 21: reset //reset checkout</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git reset 恢复到某个版本状态，--soft用仓库的内容覆盖staging area 和working directory,如果staging area和working directory有你自己的内容，你有新的修改没提交或者提交了没commit,就保留你的。--hard就不用想这么多，直接全部内容仓库的。</div><div class="line">git checkout 则是使用 staging area 的中的版本覆盖 working directory。</div><div class="line"></div><div class="line">$ git reset HEAD </div><div class="line">$ git add to_commit_first.rb</div></pre></td></tr></table></figure>
+<h4 id="Level-22-reset-soft-start"><a href="#Level-22-reset-soft-start" class="headerlink" title="Level 22: reset_soft //start"></a>Level 22: reset_soft //start</h4><ul>
+<li>–soft 参数将上一次的修改放入 staging area</li>
+<li>–mixed 参数将上一次的修改放入 working directory</li>
+<li>–hard 参数直接将上一次的修改抛弃</li>
+</ul>
+<p><code>$ git reset --soft HEAD^</code></p>
+<h4 id="Level-23-checkout-file"><a href="#Level-23-checkout-file" class="headerlink" title="Level 23: checkout_file"></a>Level 23: checkout_file</h4><p><code>$ git checkout config.rb</code></p>
+<h4 id="Level-24-remote"><a href="#Level-24-remote" class="headerlink" title="Level 24: remote"></a>Level 24: remote</h4><p><code>$ git remote -v</code></p>
+<h4 id="Level-25-remote-url"><a href="#Level-25-remote-url" class="headerlink" title="Level 25: remote_url"></a>Level 25: remote_url</h4><p><code>$ git remote -v</code></p>
+<h4 id="Level-26-pull-start"><a href="#Level-26-pull-start" class="headerlink" title="Level 26: pull  //start"></a>Level 26: pull  //start</h4><p><code>$ git pull origin master</code></p>
+<h4 id="Level-27-remote-add"><a href="#Level-27-remote-add" class="headerlink" title="Level 27: remote_add"></a>Level 27: remote_add</h4><p><code>$ git remote add origin https://github.com/githug/githug</code></p>
+<h4 id="Level-28-push-TODO-start"><a href="#Level-28-push-TODO-start" class="headerlink" title="Level 28: push  //TODO start"></a>Level 28: push  //TODO start</h4><p><code>$ git rebase origin/master master
+$ git push origin master</code></p>
+<h4 id="Level-29-diff"><a href="#Level-29-diff" class="headerlink" title="Level 29: diff"></a>Level 29: diff</h4><p><code>$ git diff HEAD</code></p>
+<h4 id="Level-30-blame"><a href="#Level-30-blame" class="headerlink" title="Level 30: blame"></a>Level 30: blame</h4><p><code>$ git blame config.rb</code></p>
+<h4 id="Level-35-branch-at-TODO-start"><a href="#Level-35-branch-at-TODO-start" class="headerlink" title="Level 35: branch_at //TODO start"></a>Level 35: branch_at //TODO start</h4><p><code>$git branch test_branch HEAD^1</code></p>
+<h4 id="Level-36-delete-branch"><a href="#Level-36-delete-branch" class="headerlink" title="Level 36: delete_branch"></a>Level 36: delete_branch</h4><p><code>$ git branch -d delete_me</code></p>
+<h4 id="Level-37-push-branch"><a href="#Level-37-push-branch" class="headerlink" title="Level 37: push_branch //"></a>Level 37: push_branch //</h4><p><code>$ git push origin test_branch</code></p>
+<h4 id="Level-38-merge"><a href="#Level-38-merge" class="headerlink" title="Level 38: merge"></a>Level 38: merge</h4><p><code>$ git merge feature master</code></p>
+<h4 id="Level-39-fetch-git-fetch-amp-amp-git-merge"><a href="#Level-39-fetch-git-fetch-amp-amp-git-merge" class="headerlink" title="Level 39: fetch //== git fetch &amp;&amp; git merge"></a>Level 39: fetch //== git fetch &amp;&amp; git merge</h4><p><code>$ git fetch origin</code></p>
+<h4 id="Level-40-rebase"><a href="#Level-40-rebase" class="headerlink" title="Level 40: rebase"></a>Level 40: rebase</h4><p>在使用此命令的时候，需要非常注意的是，不要 rebase 哪些已经推送到公共库的更新，因为此操作是重新应用修改，所以公共库的更新可能已经被其他协作者所同步，如果再次 rebase 这些修改，将可能zh</p>
+<p><code>$ git rebase master feature</code></p>
+<h4 id="Level-41-repack"><a href="#Level-41-repack" class="headerlink" title="Level 41: repack"></a>Level 41: repack</h4><p><code>$ git repack -a -d</code></p>
+<h4 id="Level-42-cherry-pick"><a href="#Level-42-cherry-pick" class="headerlink" title="Level 42: cherry-pick"></a>Level 42: cherry-pick</h4><p><code>$ git checkout master
+$ git cherry-pick new-feature~2</code></p>
+<h4 id="Level-43-grep"><a href="#Level-43-grep" class="headerlink" title="Level 43: grep"></a>Level 43: grep</h4><p><code>$ git grep TODO</code></p>
+<h4 id="Level-44-rename-commit"><a href="#Level-44-rename-commit" class="headerlink" title="Level 44: rename_commit"></a>Level 44: rename_commit</h4><p><code>$ git rebase -i logindex</code></p>
+<h4 id="Level-45-squash"><a href="#Level-45-squash" class="headerlink" title="Level 45: squash"></a>Level 45: squash</h4><p><code>$ git rebase -i log_index</code></p>
+<h4 id="Level-46-merge-squash"><a href="#Level-46-merge-squash" class="headerlink" title="Level 46: merge_squash"></a>Level 46: merge_squash</h4><p><code>$ git merge --squash long-feature-branch
+$ git add .
+$ git commit -m &quot;Merge branch long-feature-branch&quot;</code></p>
+<h4 id="Level-47-reorder"><a href="#Level-47-reorder" class="headerlink" title="Level 47: reorder"></a>Level 47: reorder</h4><p><code>$ git rebase -i log_index</code></p>
+<h4 id="Level-48-bisect"><a href="#Level-48-bisect" class="headerlink" title="Level 48: bisect"></a>Level 48: bisect</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git bisect start</div><div class="line">$ git bisect bad</div><div class="line">$ git bisect good [first commit]</div><div class="line">$ git bisect run ruby prog.rb 5    # 二分查找直至找出 bad 提交 </div><div class="line">$ git bisect start master f608824888b83</div></pre></td></tr></table></figure>
+<h4 id="Level-49-stage-lines"><a href="#Level-49-stage-lines" class="headerlink" title="Level 49: stage_lines"></a>Level 49: stage_lines</h4><p><code>$ git add -p feature.rb # 编辑提交指定行 
+or
+$ git add -e feature.rb</code></p>
+<h4 id="Level-50-find-old-branch"><a href="#Level-50-find-old-branch" class="headerlink" title="Level 50: find_old_branch"></a>Level 50: find_old_branch</h4><p><code>$ git reflog
+$ git checkout solve_world_hunger</code></p>
+<h4 id="Level-51-revert"><a href="#Level-51-revert" class="headerlink" title="Level 51: revert"></a>Level 51: revert</h4><p><code>$ git revert HEAD^1</code></p>
+<h4 id="Level-52-restore"><a href="#Level-52-restore" class="headerlink" title="Level 52: restore"></a>Level 52: restore</h4><p><code>$ git reflog
+$ git rebase --log_index
+or git checkout?</code></p>
+<h4 id="Level-53-conflict"><a href="#Level-53-conflict" class="headerlink" title="Level 53: conflict"></a>Level 53: conflict</h4><p><code>$ git merge mybranch</code></p>
+<p>resolve conflicts and finish the merge</p>
+<p><code>$ git add .
+$ git commit -m &quot;Fix merge&quot;</code></p>
+<h4 id="Level-54-submodule"><a href="#Level-54-submodule" class="headerlink" title="Level 54: submodule"></a>Level 54: submodule</h4><p><code>$ git submodule add https://github.com/jackmaney/githug-include-me githug-include-merge</code></p>
+<h4 id="Level-55-contribute"><a href="#Level-55-contribute" class="headerlink" title="Level 55: contribute"></a>Level 55: contribute</h4><p><code>:)
+Githug is designed to give you a practical way of learning git. It has a series of levels, each req</code></p>
+<p>ref:<br><a href="http://www.jianshu.com/p/482b32716bbe" target="_blank" rel="external">http://www.jianshu.com/p/482b32716bbe</a><br><a href="http://blog.csdn.net/trochiluses/article/details/8996431" target="_blank" rel="external">http://blog.csdn.net/trochiluses/article/details/8996431</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/01/12/2016-01-12-git-githug/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://winfan.xyz/2016/01/12/2016-01-12-git-githug/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/13/appstore_certificate/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/Certificate_for_Kid_Template.jpg)" alt="Appstore证书" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/10/13/appstore_certificate/" class="title">Appstore证书</a></p>
+                            <p class="item-date"><time datetime="2016-10-13T12:46:25.000Z" itemprop="datePublished">2016-10-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/17/2016-09-17-nginx-look/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-14/35860897.jpg)" alt="nginx 初体验(Todo)" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Server/">Server</a></p>
+                            <p class="item-title"><a href="/2016/09/17/2016-09-17-nginx-look/" class="title">nginx 初体验(Todo)</a></p>
+                            <p class="item-date"><time datetime="2016-09-17T12:46:25.000Z" itemprop="datePublished">2016-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/12/docker-env/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg)" alt="Docker Node开发环境" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/12/docker-env/" class="title">Docker Node开发环境</a></p>
+                            <p class="item-date"><time datetime="2016-09-12T12:46:25.000Z" itemprop="datePublished">2016-09-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/08/2016-09-08-docker-ss/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/92560022.jpg)" alt="docker 搭建ss" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/08/2016-09-08-docker-ss/" class="title">docker 搭建ss</a></p>
+                            <p class="item-date"><time datetime="2016-09-08T12:46:25.000Z" itemprop="datePublished">2016-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/07/2016-09-07-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/43360900.jpg)" alt="Docker安装" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
+                            <p class="item-title"><a href="/2016/09/07/2016-09-07-docker/" class="title">Docker安装</a></p>
+                            <p class="item-date"><time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2016 winfan<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+        this.page.identifier = 'undefined';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/count.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
