@@ -158,11 +158,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                14
+                15
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                32
+                34
                 <span>tags</span>
             </div>
         </div>
@@ -199,6 +199,209 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-30days_rn_way" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/10/19/30days_rn_way/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/10/19/30days_rn_way/">30Day&#39;s react native way</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/10/19/30days_rn_way/">
+            <time datetime="2016-10-19T12:46:25.000Z" itemprop="datePublished">2016-10-19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/ReactNative/">ReactNative</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/react-native/">react native</a>, <a class="tag-link" href="/tags/tutorial/">tutorial</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="30Day’s-react-native-way"><a href="#30Day’s-react-native-way" class="headerlink" title="30Day’s react native way"></a>30Day’s react native way</h1><p>A study note based on <a href="https://github.com/fangwei716" target="_blank" rel="external">@Wei Fang</a>‘s awesome <a href="https://github.com/fangwei716/30-days-of-react-native" target="_blank" rel="external">project</a>.</p>
+<p><a href="https://github.com/giftman/ThirtyDaysOfReactNative" target="_blank" rel="external">github地址</a></p>
+<p>###Day1 Timer</p>
+<ul>
+<li>布局 文字 fontWeight</li>
+<li>状态一控制</li>
+<li>组件分开写最后组合</li>
+<li>小的标志图可用position</li>
+<li>计时逻辑</li>
+</ul>
+<p>###Day2 Weather</p>
+<ul>
+<li>布局 scrolview vector-icon </li>
+<li>swiper 一次map了各城市数据</li>
+<li>内嵌scrollview</li>
+</ul>
+<p>###Day3 Twitter</p>
+<ul>
+<li>动画 变形及透明  动画constructor时设初值 组件style时设为属性，动作或者ComponentDidMount 时启动动画。动画有几种，我喜欢的牛读翻页效果是Flip <a href="https://github.com/kevinstumpf/react-native-flip-view" target="_blank" rel="external">https://github.com/kevinstumpf/react-native-flip-view</a></li>
+<li>下拉刷新 scrollview–&gt;refreshControl </li>
+<li>tab tab为了兼容android用了react-native-tab-navigator，简洁可定制，如果要可以左右切换效果可以用react-native-scrollable-tab-view。因为这里需要下拉刷新，如果直接用scrollable的tab会下拉不了。而且初始化时load完所有页面数据过大，还是简洁的用第一个较可定制。</li>
+<li>现在层的实现都是通过用position:’absolute’，后一层叠在前一层上，试了zIndex再看下效果。</li>
+</ul>
+<p>###Day6 Spotify</p>
+<ul>
+<li>介面实在动人 react-native-video + react-native-swiper </li>
+<li>swiper 为了全屏可触用了position:’absolute’,它本身可以设置height/width,页面的点在靠下方位置。</li>
+<li>spotify FontAwesome</li>
+</ul>
+<h3 id="Day9-TwitterUi"><a href="#Day9-TwitterUi" class="headerlink" title="Day9 TwitterUi"></a>Day9 TwitterUi</h3><ul>
+<li>先实现静态布局</li>
+<li>找出几个关键的位置点</li>
+<li>icon的变化：以自我位置为中心点，向上负数缩小，向下正数／上移过程有因素值使icon位置同时上向下移，速度稍慢于整体图片上下移</li>
+<li>bannerImg ：bannerTop 一直为0,直到上移到-62.5,然后再上移一步，_bannerTop就要相应高度下移一步</li>
+<li>透明度的计算：math.pow() 现在的高度/最终高度</li>
+<li>手势：需要设置panResponder 将触摸权限交给scrollView  才有可能实现类似的上移一部分后scrollView 或者ListView 继续上移，这里不展开</li>
+<li>(tag:todo) stick header 效果</li>
+</ul>
+<h3 id="Day10-TumblrAnimation"><a href="#Day10-TumblrAnimation" class="headerlink" title="Day10 TumblrAnimation"></a>Day10 TumblrAnimation</h3><ul>
+<li>位移动画</li>
+<li>设置state和执行Animate顺序有讲究，先让看到再执行动画，后面则相反，延迟一点让动画执行完再不显示 </li>
+<li>Touchable控件的子件默认是占满整个父件空间，可以参考NeverMind</li>
+<li>现在支持zIndex写可以更方便</li>
+<li>先用Sketch实现了布局再去写快好多–</li>
+</ul>
+<h3 id="Day13-Twitter-Input-Ui"><a href="#Day13-Twitter-Input-Ui" class="headerlink" title="Day13 Twitter Input Ui"></a>Day13 Twitter Input Ui</h3><ul>
+<li>TextInput</li>
+<li>CameraRoll.getPhotos</li>
+</ul>
+<h3 id="Day-14-SwiperCard"><a href="#Day-14-SwiperCard" class="headerlink" title="Day 14 SwiperCard"></a>Day 14 SwiperCard</h3><ul>
+<li>注意细节，在拖动时可以看到下一张图</li>
+<li>现在的tinder改变了，直接运行实例无法重现gift图效果,实现了布局</li>
+<li>tag:todo 实现<strong>react-native-tinder-swipe-cards</strong> 这个代码不长，效果酷炫，是尝试animate的绝佳材料…</li>
+</ul>
+<p>###Day16 Unlock with gesture</p>
+<ul>
+<li>父子控件之间数据传递</li>
+<li>实际写会遇到自己忽略的问题</li>
+</ul>
+<p>###Day17 不兼容android暂时跳过(tag:todo)</p>
+<p>###Day18 </p>
+<blockquote>
+<p>看似复杂的坎，越过才会发现是那回事。</p>
+<ul>
+<li>这个例子用到的还是最初的原理，View 随着state 的变化而更新。两个View变化之间的补间动画由LayoutAnimation帮我们去完成。</li>
+<li>过程:触摸时获取到方块 index给它加效果阴影,每次移动更新位置，移动到其它块位置时将它在数组的位置更新LayouAnimation动画更新。触摸结束后让被触摸到的块回到它新index应该去的地方。</li>
+<li>难点:判断触摸到的index,最后移动到哪里去了。</li>
+<li>判断边界条件，不在范围内的index处理。</li>
+<li>细节许多可以借鉴</li>
+</ul>
+</blockquote>
+<p>###Day19 Single Reminder</p>
+<ul>
+<li>先想好布局分层，多层易乱</li>
+<li>LayoutAnimation 选中完成的动作是由无到有底色，只是更换背景没有这种效果，要从无到有。</li>
+<li>阴影的使用</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/10/19/30days_rn_way/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://winfan.xyz/2016/10/19/30days_rn_way/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-appstore_certificate" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1478,212 +1681,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-2016-01-12-git-githug" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            
-	
-		<a href="/2016/01/12/2016-01-12-git-githug/" itemprop="url">
-            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/5649321.jpg" class="article-banner" />
-        </a>
-	
-
-
-
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/01/12/2016-01-12-git-githug/">Githug</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/01/12/2016-01-12-git-githug/">
-            <time datetime="2016-01-12T12:46:25.000Z" itemprop="datePublished">2016-01-12</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Tools/">Tools</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/fun/">fun</a>, <a class="tag-link" href="/tags/git/">git</a>, <a class="tag-link" href="/tags/tools/">tools</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>reset,rebase<br>reset 恢复到某一状态,保留修改待提交或者全部舍弃前面的修改<br>rebase 以某个版本为基础重新在它的基础上重新提交修改内容/以某个版本为基础交互修改log,sqush,reorder</p>
-<p>reset,chekcout<br>reset 以仓库内容覆盖<br>checkout 以Staging area 内容覆盖</p>
-<p>HEAD HEAD^ HEAD^1<br>git push origin  master<br>git push origin  test_branch</p>
-<p>其它实践再补充</p>
-<hr>
-<h4 id="Level-1-init"><a href="#Level-1-init" class="headerlink" title="Level 1: init"></a>Level 1: init</h4><p><code>$ git init</code></p>
-<h4 id="Level-2-config"><a href="#Level-2-config" class="headerlink" title="Level 2: config"></a>Level 2: config</h4><p><code>$ git config --global user.name &quot;winfan&quot;
-$ git config --global user.email &quot;winfan@123.com&quot;</code></p>
-<h4 id="Level-3-add"><a href="#Level-3-add" class="headerlink" title="Level 3: add"></a>Level 3: add</h4><p><code>$ git add README</code></p>
-<h4 id="Level-4-commit"><a href="#Level-4-commit" class="headerlink" title="Level 4: commit"></a>Level 4: commit</h4><p><code>$ git commit -m &quot;add R.. commit&quot;</code></p>
-<h4 id="Level-5-clone"><a href="#Level-5-clone" class="headerlink" title="Level 5: clone"></a>Level 5: clone</h4><p><code>$ git clone https://github.com/Gazler/cloneme</code></p>
-<h4 id="Level-6-clone-to-folder"><a href="#Level-6-clone-to-folder" class="headerlink" title="Level 6: clone_to_folder"></a>Level 6: clone_to_folder</h4><p><code>$ git clone https://github.com/Gazler/cloneme
- my_cloned_repo</code></p>
-<h4 id="Level-7-ignore"><a href="#Level-7-ignore" class="headerlink" title="Level 7: ignore"></a>Level 7: ignore</h4><p><code>$ vim .gitignore # Add line &quot;*.swp&quot;</code></p>
-<h4 id="Level-8-include"><a href="#Level-8-include" class="headerlink" title="Level 8: include"></a>Level 8: include</h4><p><code>$ vim .gitignore # Add line &quot;*.a !lib.a&quot;</code></p>
-<h4 id="Level-9-status"><a href="#Level-9-status" class="headerlink" title="Level 9: status"></a>Level 9: status</h4><p><code>$ git status</code></p>
-<h4 id="Level-10-number-of-files-committed"><a href="#Level-10-number-of-files-committed" class="headerlink" title="Level 10: number_of_files_committed"></a>Level 10: number_of_files_committed</h4><p><code>$ git status</code></p>
-<h4 id="Level-11-rm"><a href="#Level-11-rm" class="headerlink" title="Level 11: rm"></a>Level 11: rm</h4><p><code>git rm deleteme.rb</code></p>
-<h4 id="Level-12-rm-cached-start-remove-from-staging-area"><a href="#Level-12-rm-cached-start-remove-from-staging-area" class="headerlink" title="Level 12: rm_cached //start  remove from staging area"></a>Level 12: rm_cached //start  remove from staging area</h4><p><code>$ git rm --cached deleteme.rb</code></p>
-<h4 id="Level-13-stash-git-stash-h"><a href="#Level-13-stash-git-stash-h" class="headerlink" title="Level 13: stash //git stash -h"></a>Level 13: stash //git stash -h</h4><p><code>$ git stash</code></p>
-<h4 id="Level-14-rename"><a href="#Level-14-rename" class="headerlink" title="Level 14: rename"></a>Level 14: rename</h4><p><code>$ git mv oldfile.txt newfile.txt</code></p>
-<h4 id="Level-15-restructure"><a href="#Level-15-restructure" class="headerlink" title="Level 15: restructure"></a>Level 15: restructure</h4><p><code>mkdir src
-$ git mv *.html src</code></p>
-<h4 id="Level-16-log"><a href="#Level-16-log" class="headerlink" title="Level 16: log"></a>Level 16: log</h4><p><code>$ git log</code></p>
-<h4 id="Level-17-tag"><a href="#Level-17-tag" class="headerlink" title="Level 17: tag"></a>Level 17: tag</h4><p><code>$ git tag new_tag</code></p>
-<h4 id="Level-18-push-tags-TODO"><a href="#Level-18-push-tags-TODO" class="headerlink" title="Level 18: push_tags //TODO"></a>Level 18: push_tags //TODO</h4><p><code>$ git push --tags origin master</code></p>
-<h4 id="Level-19-commit-amend-add-change-the-latest-commit-message"><a href="#Level-19-commit-amend-add-change-the-latest-commit-message" class="headerlink" title="Level 19: commit_amend  // add,change the latest commit message"></a>Level 19: commit_amend  // add,change the latest commit message</h4><p><code>$ git add forgotten_file.rb
-$ git commit --amend</code></p>
-<h4 id="Level-20-commit-in-future-my-answer-is-change-the-computer-time…"><a href="#Level-20-commit-in-future-my-answer-is-change-the-computer-time…" class="headerlink" title="Level 20: commit_in_future //my answer is change the computer time…"></a>Level 20: commit_in_future //my answer is change the computer time…</h4><p><code>$ git commit -m &quot;future&quot; --date=&quot;Sun Jan 3 13:40:06 2017 +0800&quot;</code></p>
-<h4 id="Level-21-reset-reset-checkout"><a href="#Level-21-reset-reset-checkout" class="headerlink" title="Level 21: reset //reset checkout"></a>Level 21: reset //reset checkout</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git reset 恢复到某个版本状态，--soft用仓库的内容覆盖staging area 和working directory,如果staging area和working directory有你自己的内容，你有新的修改没提交或者提交了没commit,就保留你的。--hard就不用想这么多，直接全部内容仓库的。</div><div class="line">git checkout 则是使用 staging area 的中的版本覆盖 working directory。</div><div class="line"></div><div class="line">$ git reset HEAD </div><div class="line">$ git add to_commit_first.rb</div></pre></td></tr></table></figure>
-<h4 id="Level-22-reset-soft-start"><a href="#Level-22-reset-soft-start" class="headerlink" title="Level 22: reset_soft //start"></a>Level 22: reset_soft //start</h4><ul>
-<li>–soft 参数将上一次的修改放入 staging area</li>
-<li>–mixed 参数将上一次的修改放入 working directory</li>
-<li>–hard 参数直接将上一次的修改抛弃</li>
-</ul>
-<p><code>$ git reset --soft HEAD^</code></p>
-<h4 id="Level-23-checkout-file"><a href="#Level-23-checkout-file" class="headerlink" title="Level 23: checkout_file"></a>Level 23: checkout_file</h4><p><code>$ git checkout config.rb</code></p>
-<h4 id="Level-24-remote"><a href="#Level-24-remote" class="headerlink" title="Level 24: remote"></a>Level 24: remote</h4><p><code>$ git remote -v</code></p>
-<h4 id="Level-25-remote-url"><a href="#Level-25-remote-url" class="headerlink" title="Level 25: remote_url"></a>Level 25: remote_url</h4><p><code>$ git remote -v</code></p>
-<h4 id="Level-26-pull-start"><a href="#Level-26-pull-start" class="headerlink" title="Level 26: pull  //start"></a>Level 26: pull  //start</h4><p><code>$ git pull origin master</code></p>
-<h4 id="Level-27-remote-add"><a href="#Level-27-remote-add" class="headerlink" title="Level 27: remote_add"></a>Level 27: remote_add</h4><p><code>$ git remote add origin https://github.com/githug/githug</code></p>
-<h4 id="Level-28-push-TODO-start"><a href="#Level-28-push-TODO-start" class="headerlink" title="Level 28: push  //TODO start"></a>Level 28: push  //TODO start</h4><p><code>$ git rebase origin/master master
-$ git push origin master</code></p>
-<h4 id="Level-29-diff"><a href="#Level-29-diff" class="headerlink" title="Level 29: diff"></a>Level 29: diff</h4><p><code>$ git diff HEAD</code></p>
-<h4 id="Level-30-blame"><a href="#Level-30-blame" class="headerlink" title="Level 30: blame"></a>Level 30: blame</h4><p><code>$ git blame config.rb</code></p>
-<h4 id="Level-35-branch-at-TODO-start"><a href="#Level-35-branch-at-TODO-start" class="headerlink" title="Level 35: branch_at //TODO start"></a>Level 35: branch_at //TODO start</h4><p><code>$git branch test_branch HEAD^1</code></p>
-<h4 id="Level-36-delete-branch"><a href="#Level-36-delete-branch" class="headerlink" title="Level 36: delete_branch"></a>Level 36: delete_branch</h4><p><code>$ git branch -d delete_me</code></p>
-<h4 id="Level-37-push-branch"><a href="#Level-37-push-branch" class="headerlink" title="Level 37: push_branch //"></a>Level 37: push_branch //</h4><p><code>$ git push origin test_branch</code></p>
-<h4 id="Level-38-merge"><a href="#Level-38-merge" class="headerlink" title="Level 38: merge"></a>Level 38: merge</h4><p><code>$ git merge feature master</code></p>
-<h4 id="Level-39-fetch-git-fetch-amp-amp-git-merge"><a href="#Level-39-fetch-git-fetch-amp-amp-git-merge" class="headerlink" title="Level 39: fetch //== git fetch &amp;&amp; git merge"></a>Level 39: fetch //== git fetch &amp;&amp; git merge</h4><p><code>$ git fetch origin</code></p>
-<h4 id="Level-40-rebase"><a href="#Level-40-rebase" class="headerlink" title="Level 40: rebase"></a>Level 40: rebase</h4><p>在使用此命令的时候，需要非常注意的是，不要 rebase 哪些已经推送到公共库的更新，因为此操作是重新应用修改，所以公共库的更新可能已经被其他协作者所同步，如果再次 rebase 这些修改，将可能zh</p>
-<p><code>$ git rebase master feature</code></p>
-<h4 id="Level-41-repack"><a href="#Level-41-repack" class="headerlink" title="Level 41: repack"></a>Level 41: repack</h4><p><code>$ git repack -a -d</code></p>
-<h4 id="Level-42-cherry-pick"><a href="#Level-42-cherry-pick" class="headerlink" title="Level 42: cherry-pick"></a>Level 42: cherry-pick</h4><p><code>$ git checkout master
-$ git cherry-pick new-feature~2</code></p>
-<h4 id="Level-43-grep"><a href="#Level-43-grep" class="headerlink" title="Level 43: grep"></a>Level 43: grep</h4><p><code>$ git grep TODO</code></p>
-<h4 id="Level-44-rename-commit"><a href="#Level-44-rename-commit" class="headerlink" title="Level 44: rename_commit"></a>Level 44: rename_commit</h4><p><code>$ git rebase -i logindex</code></p>
-<h4 id="Level-45-squash"><a href="#Level-45-squash" class="headerlink" title="Level 45: squash"></a>Level 45: squash</h4><p><code>$ git rebase -i log_index</code></p>
-<h4 id="Level-46-merge-squash"><a href="#Level-46-merge-squash" class="headerlink" title="Level 46: merge_squash"></a>Level 46: merge_squash</h4><p><code>$ git merge --squash long-feature-branch
-$ git add .
-$ git commit -m &quot;Merge branch long-feature-branch&quot;</code></p>
-<h4 id="Level-47-reorder"><a href="#Level-47-reorder" class="headerlink" title="Level 47: reorder"></a>Level 47: reorder</h4><p><code>$ git rebase -i log_index</code></p>
-<h4 id="Level-48-bisect"><a href="#Level-48-bisect" class="headerlink" title="Level 48: bisect"></a>Level 48: bisect</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git bisect start</div><div class="line">$ git bisect bad</div><div class="line">$ git bisect good [first commit]</div><div class="line">$ git bisect run ruby prog.rb 5    # 二分查找直至找出 bad 提交 </div><div class="line">$ git bisect start master f608824888b83</div></pre></td></tr></table></figure>
-<h4 id="Level-49-stage-lines"><a href="#Level-49-stage-lines" class="headerlink" title="Level 49: stage_lines"></a>Level 49: stage_lines</h4><p><code>$ git add -p feature.rb # 编辑提交指定行 
-or
-$ git add -e feature.rb</code></p>
-<h4 id="Level-50-find-old-branch"><a href="#Level-50-find-old-branch" class="headerlink" title="Level 50: find_old_branch"></a>Level 50: find_old_branch</h4><p><code>$ git reflog
-$ git checkout solve_world_hunger</code></p>
-<h4 id="Level-51-revert"><a href="#Level-51-revert" class="headerlink" title="Level 51: revert"></a>Level 51: revert</h4><p><code>$ git revert HEAD^1</code></p>
-<h4 id="Level-52-restore"><a href="#Level-52-restore" class="headerlink" title="Level 52: restore"></a>Level 52: restore</h4><p><code>$ git reflog
-$ git rebase --log_index
-or git checkout?</code></p>
-<h4 id="Level-53-conflict"><a href="#Level-53-conflict" class="headerlink" title="Level 53: conflict"></a>Level 53: conflict</h4><p><code>$ git merge mybranch</code></p>
-<p>resolve conflicts and finish the merge</p>
-<p><code>$ git add .
-$ git commit -m &quot;Fix merge&quot;</code></p>
-<h4 id="Level-54-submodule"><a href="#Level-54-submodule" class="headerlink" title="Level 54: submodule"></a>Level 54: submodule</h4><p><code>$ git submodule add https://github.com/jackmaney/githug-include-me githug-include-merge</code></p>
-<h4 id="Level-55-contribute"><a href="#Level-55-contribute" class="headerlink" title="Level 55: contribute"></a>Level 55: contribute</h4><p><code>:)
-Githug is designed to give you a practical way of learning git. It has a series of levels, each req</code></p>
-<p>ref:<br><a href="http://www.jianshu.com/p/482b32716bbe" target="_blank" rel="external">http://www.jianshu.com/p/482b32716bbe</a><br><a href="http://blog.csdn.net/trochiluses/article/details/8996431" target="_blank" rel="external">http://blog.csdn.net/trochiluses/article/details/8996431</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-    <div class="jiathis_style">
-    <span class="jiathis_txt">分享到：</span>
-    <a class="jiathis_button_qzone">QQ空间</a>
-    <a class="jiathis_button_tsina">新浪微博</a>
-    <a class="jiathis_button_tqq">腾讯微博</a>
-    <a class="jiathis_button_weixin">微信</a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-    <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<style>
-    .jiathis_style div:first-child:not(.jiadiv_01) {
-        width: auto !important;
-        border: none !important;
-    }
-    .jiathis_style .jiadiv_01 {
-        margin: 10px 0;
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .jiathis_style .jiadiv_01 div:first-child {
-        display: none;
-    }
-    .jiathis_style .jiadiv_02 {
-        padding: 7px 0 !important;
-    }
-    .jiathis_style .jiadiv_02 .jiatitle {
-        width: 85px;
-        border: none;
-        height: auto;
-        margin: 3px 10px;
-        padding: 6px 10px;
-        border-radius: 4px;
-    }
-    .jiathis_style .jiadiv_02 .jiatitle:hover {
-        border: none;
-    }
-    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
-        margin-left: 0;
-    }
-    .jiathis_style .jtico:hover {
-        opacity: 1;
-    }
-    .jiathis_style .ckepopBottom,
-    .jiathis_style .centerBottom {
-        width: auto !important;
-        padding: 5px;
-        background: #f7f7f7;
-    }
-</style>
-
-
-
-</div>
-
-            
-    
-        <a href="http://winfan.xyz/2016/01/12/2016-01-12-git-githug/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://winfan.xyz/2016/01/12/2016-01-12-git-githug/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1696,6 +1693,25 @@ Githug is designed to give you a practical way of learning git. It has a series 
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/19/30days_rn_way/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg)" alt="30Day&#39;s react native way" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ReactNative/">ReactNative</a></p>
+                            <p class="item-title"><a href="/2016/10/19/30days_rn_way/" class="title">30Day&#39;s react native way</a></p>
+                            <p class="item-date"><time datetime="2016-10-19T12:46:25.000Z" itemprop="datePublished">2016-10-19</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1773,25 +1789,6 @@ Githug is designed to give you a practical way of learning git. It has a series 
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/07/2016-09-07-docker/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/43360900.jpg)" alt="Docker安装" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
-                            <p class="item-title"><a href="/2016/09/07/2016-09-07-docker/" class="title">Docker安装</a></p>
-                            <p class="item-date"><time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1801,7 +1798,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1810,7 +1807,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1819,7 +1816,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
+            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
         </div>
     </div>
 
