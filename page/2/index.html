@@ -158,11 +158,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                15
+                17
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                34
+                35
                 <span>tags</span>
             </div>
         </div>
@@ -199,6 +199,291 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-2016-05-24-qemu" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/05/24/2016-05-24-qemu/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/99604908.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/24/2016-05-24-qemu/">qemu</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/24/2016-05-24-qemu/">
+            <time datetime="2016-05-24T12:46:25.000Z" itemprop="datePublished">2016-05-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hack/">Hack</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hack/">hack</a>, <a class="tag-link" href="/tags/qemu/">qemu</a>, <a class="tag-link" href="/tags/tool/">tool</a>, <a class="tag-link" href="/tags/zpt/">zpt</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>some times we want to write about how we success ,but here just describe how pain I had suffered.</p>
+</blockquote>
+<p>Reference: Jeremy <a href="http://m.77169.net/HTML/226392.html" target="_blank" rel="external">http://m.77169.net/HTML/226392.html</a></p>
+<h3 id="安装依赖，下载qemu"><a href="#安装依赖，下载qemu" class="headerlink" title="安装依赖，下载qemu"></a>安装依赖，下载qemu</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y libglib2.0-dev uml-utilities bridge-utils dh-autoreconf vim git</div><div class="line"></div><div class="line">wget http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2 </div><div class="line"></div><div class="line">wget https://downloads.openwrt.org/snapshots/trunk/malta/generic/openwrt-malta-le-vmlinux-initramfs.elf</div></pre></td></tr></table></figure>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/69481813.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/80615105.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/20791963.jpg" alt=""></p>
+<h3 id="1-添加网桥"><a href="#1-添加网桥" class="headerlink" title="1 添加网桥"></a>1 添加网桥</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/55194388.jpg" alt=""><br>创建后 sudo /sbin/ifup tap0 &amp;&amp; sudo /sbin/ifup br0  启动</p>
+<h3 id="2-创建ubuntu与qemu虚拟之间的共享盘"><a href="#2-创建ubuntu与qemu虚拟之间的共享盘" class="headerlink" title="2 创建ubuntu与qemu虚拟之间的共享盘"></a>2 创建ubuntu与qemu虚拟之间的共享盘</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/74696503.jpg" alt=""><br><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/41611918.jpg" alt=""></p>
+<h3 id="3-binwalk-解压固件"><a href="#3-binwalk-解压固件" class="headerlink" title="3 binwalk 解压固件"></a>3 binwalk 解压固件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//binwalk</div><div class="line">git clone https://github.com/devttys0/binwalk</div><div class="line">sudo python setup.py install</div><div class="line">sudo apt-get install python-lzma</div><div class="line">binwalk -e NW774.bin</div></pre></td></tr></table></figure>
+<p>解压完有以下内容，将squashfs-root 复制到上一步的共享盘中即/tmp/share,squashfs-root 里面有bin这些文件，新复制内容到里面需要重新启动qemu</p>
+<p><img src="http:///img/qemu_10.png" alt="img"></p>
+<h3 id="4-通过telnet-连接qemu虚拟器"><a href="#4-通过telnet-连接qemu虚拟器" class="headerlink" title="4 通过telnet 连接qemu虚拟器"></a>4 通过telnet 连接qemu虚拟器</h3><p><code>telnet localhost 6666</code></p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/85307953.jpg" alt=""></p>
+<h3 id="5-chroot-到从NW774-bin解压的文件"><a href="#5-chroot-到从NW774-bin解压的文件" class="headerlink" title="5 chroot 到从NW774.bin解压的文件"></a>5 chroot 到从NW774.bin解压的文件</h3><p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/89948576.jpg" alt=""></p>
+<h4 id="可惜最后我有ubuntu-32位-1604-ubuntu-64位-1404-qemu-2-6-都会出现如上图错误，实验失败–"><a href="#可惜最后我有ubuntu-32位-1604-ubuntu-64位-1404-qemu-2-6-都会出现如上图错误，实验失败–" class="headerlink" title="可惜最后我有ubuntu 32位 1604/ubuntu 64位 1404/ qemu 2.6 都会出现如上图错误，实验失败–"></a>可惜最后我有ubuntu 32位 1604/ubuntu 64位 1404/ qemu 2.6 都会出现如上图错误，实验失败–</h4><p>执行过的shell 如下方便重现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"> #!/bin/bash</div><div class="line">wget http://wiki.qemu-project.org/download/qemu-2.6.0.tar.bz2</div><div class="line">wget https://downloads.openwrt.org/snapshots/trunk/malta/generic/openwrt-malta-le-vmlinux-initramfs.elf</div><div class="line"></div><div class="line">apt-cache search glib2</div><div class="line"></div><div class="line">sudo apt-get install -y libglib2.0-dev uml-utilities bridge-utils dh-autoreconf vim git squashfs-tools p7zip-full</div><div class="line"></div><div class="line">./configure --target-list=mipsel-softmmu --prefix=/usr/local</div><div class="line"></div><div class="line">export LANG=en_US:zh_CN.UTF-8</div><div class="line">export LC_ALL=C</div><div class="line"></div><div class="line">sudo make &amp;&amp; make install</div><div class="line"></div><div class="line">cd ~</div><div class="line"></div><div class="line">dd if=/dev/zero of=Desktop/share.img bs=1M count=350</div><div class="line">mkfs.ext4 Desktop/share.img</div><div class="line">mkdir /tmp/share</div><div class="line">sudo mount -o loop Desktop/share.img /tmp/share</div><div class="line"></div><div class="line">//binwalk</div><div class="line">git clone https://github.com/devttys0/binwalk</div><div class="line">sudo python setup.py install</div><div class="line">sudo apt-get install python-lzma</div><div class="line">binwalk -e ...bin</div><div class="line"></div><div class="line">sudo qemu-system-mipsel -kernel openwrt-malta-le-vmlinux-initramfs.elf -M malta -net nic,vlan=0,macaddr=00:33:33:33:33:33 -net tap,vlan=0,ifname=tap0,script=no -serial tcp::6666,server -nographic -drive file=Desktop/share.img</div><div class="line"></div><div class="line">telnet localhost 6666</div><div class="line"> ##Enter</div><div class="line"> ##dmesg | grep &quot;350 MiB&quot;</div><div class="line">mount -t ext4 /dev/sda /overlay</div><div class="line">chroot /overlay/squashfs-root/</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="mac-截图"><a href="#mac-截图" class="headerlink" title="mac 截图"></a>mac 截图</h2><p>shift + command +4   截并保存在桌面<br>shift + ctrl + command +4 截并不保存成文件</p>
+<h2 id="mac-共享给ubuntu"><a href="#mac-共享给ubuntu" class="headerlink" title="mac 共享给ubuntu"></a>mac 共享给ubuntu</h2><p>输入帐号密码</p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/16158621.jpg" alt=""></p>
+<p><img src="http://oeyxehw3i.bkt.clouddn.com/16-10-14/82912201.jpg" alt=""></p>
+<h2 id="ceye-io"><a href="#ceye-io" class="headerlink" title="ceye.io"></a>ceye.io</h2><p><a href="http://ceye.io/introduce" target="_blank" rel="external">http://ceye.io/introduce</a></p>
+<p>x382au.ceye.io  以这个域名结尾的都可以统计到次数，ip,user-agent.<br>域名或者request</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#curl http://httprequest.test.x382au.ceye.io/hello/\?p\=httptest</div><div class="line">#nslookup http://httprequest.test.x382au.ceye.io</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/05/24/2016-05-24-qemu/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://winfan.xyz/2016/05/24/2016-05-24-qemu/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-2016-05-20-zptnote" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/05/20/2016-05-20-zptnote/" itemprop="url">
+            <img src="http://kcon.knownsec.com/static/images/product/lg/wallpaper-seebug-2-lg.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/20/2016-05-20-zptnote/">ZPT日常作战</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/20/2016-05-20-zptnote/">
+            <time datetime="2016-05-20T12:46:25.000Z" itemprop="datePublished">2016-05-20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Hack/">Hack</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/hack/">hack</a>, <a class="tag-link" href="/tags/note/">note</a>, <a class="tag-link" href="/tags/todo/">todo</a>, <a class="tag-link" href="/tags/zpt/">zpt</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>#ZPT日常作战</p>
+<h4 id="初战优秀记录"><a href="#初战优秀记录" class="headerlink" title="初战优秀记录"></a>初战优秀记录</h4><ol>
+<li><a href="http://www.wtoutiao.com/p/18bJeig.html" target="_blank" rel="external">ZoomEye+Seebug二进制恶魔果实的神奇力量初探与思考</a></li>
+<li><a href="http://s0m30ne.com/2016/04/25/Zoomeye-Pocsuite-%E5%B0%8F%E5%BF%83%E4%BD%A0%E8%83%8C%E5%90%8E%E7%9A%84%E7%9C%BC%E7%9D%9B/" target="_blank" rel="external">小心你背后的眼睛</a></li>
+<li><a href="http://www.wtoutiao.com/p/1d3BMFv.html" target="_blank" rel="external">poc其实没那么难写</a></li>
+<li>还有几篇忘记收藏了，找回来再补</li>
+</ol>
+<h3 id="History"><a href="#History" class="headerlink" title="History"></a>History</h3><h4 id="CouchDB-restful-api-的越来越多，写你的方便，安全由我们守护"><a href="#CouchDB-restful-api-的越来越多，写你的方便，安全由我们守护" class="headerlink" title="CouchDB (restful api ..的越来越多，写你的方便，安全由我们守护)"></a>CouchDB (restful api ..的越来越多，写你的方便，安全由我们守护)</h4><h4 id="docker-port-2375-remote-api"><a href="#docker-port-2375-remote-api" class="headerlink" title="docker port:2375 remote api"></a>docker port:2375 remote api</h4><h4 id="1-3-3c-proFTPd"><a href="#1-3-3c-proFTPd" class="headerlink" title="1.3.3c proFTPd"></a>1.3.3c proFTPd</h4><h4 id="磊科路由"><a href="#磊科路由" class="headerlink" title="磊科路由"></a>磊科路由</h4><p><a href="https://www.seebug.org/vuldb/ssvid-90227" target="_blank" rel="external">jeremie at seebug</a></p>
+<h4 id="ImageMagic-big-bang"><a href="#ImageMagic-big-bang" class="headerlink" title="ImageMagic(big bang)"></a>ImageMagic(big bang)</h4><p><a href="http://ricterz.me/posts/Write%20Up%3A%20Remote%20Command%20Execute%20in%20Wordpress%204.5.1?_=1463733258856" target="_blank" rel="external">Write Up: Remote Command Execute in Wordpress 4.5.1</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/05/20/2016-05-20-zptnote/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://winfan.xyz/2016/05/20/2016-05-20-zptnote/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-01-12-git-githug" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1029,6 +1314,44 @@ Githug is designed to give you a practical way of learning git. It has a series 
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/11/10/rn-bitrise/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/public/16-11-10/44640160.jpg)" alt="RN Bitrise一键集成打包android/ios测试包" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ReactNative/">ReactNative</a></p>
+                            <p class="item-title"><a href="/2016/11/10/rn-bitrise/" class="title">RN Bitrise一键集成打包android/ios测试包</a></p>
+                            <p class="item-date"><time datetime="2016-11-10T12:46:25.000Z" itemprop="datePublished">2016-11-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/03/ios-rn/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/11/03/ios-rn/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2016-11-03T09:59:12.000Z" itemprop="datePublished">2016-11-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/10/19/30days_rn_way/" class="thumbnail">
     
     
@@ -1083,44 +1406,6 @@ Githug is designed to give you a practical way of learning git. It has a series 
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/12/docker-env/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/10398225.jpg)" alt="Docker Node开发环境" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
-                            <p class="item-title"><a href="/2016/09/12/docker-env/" class="title">Docker Node开发环境</a></p>
-                            <p class="item-date"><time datetime="2016-09-12T12:46:25.000Z" itemprop="datePublished">2016-09-12</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/08/2016-09-08-docker-ss/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/16-10-13/92560022.jpg)" alt="docker 搭建ss" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
-                            <p class="item-title"><a href="/2016/09/08/2016-09-08-docker-ss/" class="title">docker 搭建ss</a></p>
-                            <p class="item-date"><time datetime="2016-09-08T12:46:25.000Z" itemprop="datePublished">2016-09-08</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1130,7 +1415,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1139,7 +1424,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1148,7 +1433,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
+            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/auto/" style="font-size: 10px;">auto</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
         </div>
     </div>
 
