@@ -158,11 +158,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                18
+                19
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                38
+                40
                 <span>tags</span>
             </div>
         </div>
@@ -199,6 +199,150 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-2016-09-07-docker" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2016/09/07/2016-09-07-docker/" itemprop="url">
+            <img src="http://oeyxehw3i.bkt.clouddn.com/16-10-13/43360900.jpg" class="article-banner" />
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/07/2016-09-07-docker/">Docker安装</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/07/2016-09-07-docker/">
+            <time datetime="2016-09-07T12:46:25.000Z" itemprop="datePublished">2016-09-07</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/env-setting/">env_setting</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>centos 7.2 64位 / docker 1.8</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">yum -y update</div><div class="line">curl <span class="_">-s</span>SL https://get.docker.com/ | sh </div><div class="line">yum install -y docker-selinux</div><div class="line"><span class="comment">#启动</span></div><div class="line">systemctl start docker.service</div><div class="line"><span class="comment">#测试安装是否成功</span></div><div class="line">docker run hello-world</div><div class="line"><span class="comment">#开机自启动</span></div><div class="line">systemctl <span class="built_in">enable</span> docker.service</div><div class="line"></div><div class="line"><span class="comment">#开放端口示例</span></div><div class="line">firewall-cmd --state</div><div class="line"><span class="comment">#看开机自运行程序</span></div><div class="line">systemctl list-unit-files | grep firewall</div><div class="line"><span class="comment">#...虚拟机关掉...</span></div><div class="line">systemctl <span class="built_in">disable</span> firewalld</div><div class="line"></div><div class="line"><span class="comment">#ip</span></div><div class="line">ip ad | less</div><div class="line"></div><div class="line"><span class="comment">#查看现运行占内存进程</span></div><div class="line">ps aux | grep docker</div></pre></td></tr></table></figure>
+<h2 id="Docker速度过慢"><a href="#Docker速度过慢" class="headerlink" title="Docker速度过慢"></a>Docker速度过慢</h2><p>香港主机快到不可想像，一开始用公司网络不能活，简直浪费时间，国内机器可以用<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">加速器</a> ,1.8以下手动把那地址加上去也可以用，总算可以pull到。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>docker 用镜像image运行起来的容器叫container,要删掉image需要先删掉container，要删掉container当然要先停了container,一般都是docker stop container &amp;&amp; docker rm container  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">docker ps -a</div><div class="line">docker search hello</div><div class="line">docker stop/restart/start/pause/unpause</div><div class="line">docker -h</div><div class="line">docker commit container</div><div class="line">docker push  #需要docker.io 即docker hub帐号</div><div class="line"></div><div class="line">#常见删掉image需要</div><div class="line">docker stop container &amp;&amp; docker rm container &amp;&amp; docker rmi image</div><div class="line"></div><div class="line">#批量删除none的image镜像,</div><div class="line">docker ps -a | grep &quot;Exited&quot; | awk &apos;&#123;print $1&#125;&apos; | xargs docker stop </div><div class="line">docker ps -a | grep &quot;Exited&quot; | awk &apos;&#123;print $1&#125;&apos; | xargs docker rm </div><div class="line">docker images | grep none | awk &apos;&#123;print $3&#125;&apos; |xargs docker rmi</div></pre></td></tr></table></figure>
+<h2 id="Docker-神器docker-compose"><a href="#Docker-神器docker-compose" class="headerlink" title="Docker 神器docker-compose"></a>Docker 神器docker-compose</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh &gt; /usr/<span class="built_in">local</span>/bin/docker-compose</div><div class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#常用命令与docker兼容</span></div><div class="line">docker-compose -h</div></pre></td></tr></table></figure>
+<h2 id="未涉及"><a href="#未涉及" class="headerlink" title="未涉及"></a>未涉及</h2><ul>
+<li>swarm/多线程/..</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://dockone.io/article/620" target="_blank" rel="external">CentOS 7上安装Docker 1.8 - DockOne.io</a></li>
+<li><a href="http://www.centoscn.com/CentOS/config/2016/0830/7861.html" target="_blank" rel="external">CentOS7中关闭firewall，并使用iptables管理防火墙centos</a></li>
+<li><a href="https://github.com/widuu/chinese_docker" target="_blank" rel="external">widuu/chinese_docker docker常用命令</a></li>
+<li><a href="http://cholerae.com/2015/04/13/-%E7%BF%BB%E8%AF%91-Docker-Compose%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" target="_blank" rel="external">[翻译]Docker Compose工具快速入门</a></li>
+<li><a href="http://xiaorui.cc/2015/03/11/docker%e5%bc%ba%e5%88%b6%e6%89%b9%e9%87%8f%e5%88%a0%e9%99%a4none%e7%9a%84image%e9%95%9c%e5%83%8f/" target="_blank" rel="external">docker强制批量删除none的image镜像</a></li>
+<li><a href="http://www.docker.org.cn/book/docker/docker-search-image-6.html" target="_blank" rel="external">Docker入门教程</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+</div>
+
+            
+    
+        <a href="http://winfan.xyz/2016/09/07/2016-09-07-docker/#comments" class="article-comment-link ds-thread-count" data-thread-key="http://winfan.xyz/2016/09/07/2016-09-07-docker/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-2016-06-01-book-baby" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1459,6 +1603,25 @@ Githug is designed to give you a practical way of learning git. It has a series 
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/03/10/private/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/google/">google</a></p>
+                            <p class="item-title"><a href="/2018/03/10/private/" class="title">隐私政策</a></p>
+                            <p class="item-date"><time datetime="2018-03-10T12:46:25.000Z" itemprop="datePublished">2018-03-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2017/10/23/book_note_one_thing/" class="thumbnail">
     
     
@@ -1532,25 +1695,6 @@ Githug is designed to give you a practical way of learning git. It has a series 
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/10/13/appstore_certificate/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://oeyxehw3i.bkt.clouddn.com/Certificate_for_Kid_Template.jpg)" alt="Appstore证书" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/10/13/appstore_certificate/" class="title">Appstore证书</a></p>
-                            <p class="item-date"><time datetime="2016-10-13T12:46:25.000Z" itemprop="datePublished">2016-10-13</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1560,7 +1704,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/book/">book</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/crawl/">crawl</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactNative/">ReactNative</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/book/">book</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/crawl/">crawl</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/google/">google</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1569,7 +1713,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1578,7 +1722,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/auto/" style="font-size: 10px;">auto</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/pyspider/" style="font-size: 10px;">pyspider</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
+            <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/appstore/" style="font-size: 10px;">appstore</a> <a href="/tags/auto/" style="font-size: 10px;">auto</a> <a href="/tags/baby/" style="font-size: 10px;">baby</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/booknote/" style="font-size: 15px;">booknote</a> <a href="/tags/crawl/" style="font-size: 10px;">crawl</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/env-setting/" style="font-size: 20px;">env_setting</a> <a href="/tags/fun/" style="font-size: 10px;">fun</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gitlab/" style="font-size: 10px;">gitlab</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/hack/" style="font-size: 15px;">hack</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/overseas/" style="font-size: 10px;">overseas</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/pyspider/" style="font-size: 10px;">pyspider</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/qemu/" style="font-size: 10px;">qemu</a> <a href="/tags/react-native/" style="font-size: 15px;">react native</a> <a href="/tags/server/" style="font-size: 15px;">server</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/team/" style="font-size: 10px;">team</a> <a href="/tags/todo/" style="font-size: 15px;">todo</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/tools/" style="font-size: 20px;">tools</a> <a href="/tags/tutorial/" style="font-size: 10px;">tutorial</a> <a href="/tags/unitest/" style="font-size: 10px;">unitest</a> <a href="/tags/unix/" style="font-size: 10px;">unix</a> <a href="/tags/what/" style="font-size: 10px;">what</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a> <a href="/tags/zpt/" style="font-size: 15px;">zpt</a>
         </div>
     </div>
 
@@ -1606,7 +1750,7 @@ Githug is designed to give you a practical way of learning git. It has a series 
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2017 winfan<br>
+            &copy; 2018 winfan<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
